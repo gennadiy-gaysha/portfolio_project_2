@@ -8,3 +8,15 @@ document.getElementById('start').addEventListener('click', function () {
     addPanel.style.display = 'block';
 
 })
+
+
+let dices = document.getElementsByClassName('dice');
+for (let dice of dices) {
+    dice.addEventListener('click', function () {
+        if (this.style.backgroundColor === 'yellow') {
+            dice.style.backgroundColor = 'white'
+        } else {
+            this.style.backgroundColor = 'yellow'
+        }
+    })
+}
