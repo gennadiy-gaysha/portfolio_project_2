@@ -1,8 +1,8 @@
 'use strict';
 
 document.getElementById('start').addEventListener('click', function () {
-    let removePanel = document.getElementById('start-panel');
-    let addPanel = document.getElementById('play-area');
+    const removePanel = document.getElementById('start-panel');
+    const addPanel = document.getElementById('play-area');
 
     removePanel.style.display = 'none';
     addPanel.style.display = 'block';
@@ -10,7 +10,7 @@ document.getElementById('start').addEventListener('click', function () {
 })
 
 
-let dices = document.getElementsByClassName('dice');
+const dices = document.getElementsByClassName('dice');
 for (let dice of dices) {
     dice.addEventListener('click', function () {
         if (this.style.backgroundColor === 'yellow') {
@@ -20,3 +20,14 @@ for (let dice of dices) {
         }
     })
 }
+
+const divRoll = document.getElementById('roll--dice')
+divRoll.addEventListener('click', function () {
+    const diceImages = document.getElementsByClassName('dice-image')
+    for (let diceImage of diceImages) {
+        const diceNumber = Math.floor(Math.random() * 6 + 1);
+        const imageURL = `assets/img/${diceNumber}.png`
+        diceImage.src = imageURL;
+
+    }
+})
