@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', sans-serif;
+    color: #eee;
+    background-color: #222;
+    /* background-color: #60b347; */
+}
+
+#start-panel {
+    margin: 50px auto;
+    background: blue;
+    border: #624afe 20px solid;
+    width: 70%;
+    height: 600px;
+}
+
+h1 {
+    padding-top: 150px;
+    text-align: center;
+    font-size: 11em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+#start {
+    box-shadow:
+        5px 10px 0 rgb(14, 14, 14);
+    font-family: 'Press Start 2P', sans-serif;
+    text-align: center;
+    display: block;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+#start:active {
+    box-shadow: 5px 5px 0 rgb(14, 14, 14);
+    transform: translate(0, 5px);
+}
+
+#play-area {
+    margin: 50px auto;
+    background: blue;
+    border: #624afe 20px solid;
+    width: 70%;
+    height: 600px;
+    display: none;
+}
+
+.dice-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    width: 75%;
+    background: rgb(0, 204, 0);
+    height: 200px;
+    box-shadow:
+        7px 12px 0 rgb(14, 14, 14);
+}
+
+.dice {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #333;
+    background-color: white;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    box-shadow:
+        5px 10px 0 rgb(14, 14, 14);
+}
+
+.dice:active {
+    box-shadow: 5px 5px 0 rgb(14, 14, 14);
+    transform: translate(0, 5px);
+}
+
+.dice-container div:last-child {
+    background-color: rgb(160, 160, 160);
+    font-size: 18px;
+    color: black;
+    text-align: center;
+    line-height: 130%;
+}
+
+
+.score-container {
+    padding: 20px;
+    margin: 30px auto;
+    width: 75%;
+    background: rgb(190, 190, 190);
+    height: 200px;
+    color: black;
+    line-height: 200%;
+    box-shadow:
+        7px 12px 0 rgb(14, 14, 14);
+}
