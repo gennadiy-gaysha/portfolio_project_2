@@ -10,31 +10,42 @@ document.getElementById('start').addEventListener('click', function () {
 })
 
 
-const dices = document.getElementsByClassName('dice');
-for (let dice of dices) {
-    dice.addEventListener('click', function () {
-        if (this.style.backgroundColor === 'yellow') {
-            this.style.backgroundColor = 'white'
-            this.classList.add('some-class');
+const diceImages = document.getElementsByClassName('dice-image');
+for (let diceImage of diceImages) {
+    diceImage.addEventListener('click', function () {
+        if (this.classList.contains('hold-dice')) {
+            this.classList.remove('hold-dice');
         } else {
-            this.style.backgroundColor = 'yellow'
-            this.classList.remove('some-class');
+            this.classList.add('hold-dice');
         }
     })
 }
 
-const divRoll = document.getElementById('roll--dice')
-divRoll.addEventListener('click', function () {
-    // holdNumber();
+
+
+document.getElementById('roll--dice').addEventListener('click', function () {
     revealDice();
-    const diceImages = document.getElementsByClassName('dice-image')
+    const diceImages = document.getElementsByClassName('hold-dice')
     for (let diceImage of diceImages) {
-        const diceNumber = Math.floor(Math.random() * 6 + 1);
+
+        let diceNumber = Math.floor(Math.random() * 6 + 1);
         const imageURL = `assets/img/${diceNumber}.png`
         diceImage.src = imageURL;
 
     }
 })
+
+const dices = document.getElementsByClassName('dice');
+for (let dice of dices) {
+    dice.addEventListener('click', function () {
+        if (this.style.backgroundColor === 'yellow') {
+            this.style.backgroundColor = 'white'
+            console.log(this.style.backgroundColor);
+        } else {
+            this.style.backgroundColor = 'yellow'
+        }
+    })
+}
 
 function revealDice() {
     const redDices = document.getElementsByClassName('red');
@@ -47,12 +58,15 @@ function revealDice() {
     }
 }
 
-
-
-function holdNumber() {
-    for (let dice of dices) {
-        if (dice.style.backgroundColor === 'yellow') {
-            console.log(dice.innerHTML);
-        }
+document.getElementById('ones-score').addEventListener('click', function () {
+    let arr = []
+    for (let diceImage of diceImages) {
+        arr.push(diceImage.getAttribute('src'));
     }
-}
+
+    let arr2 = arr.map((item) => parseInt(item.match(/\d+/)))
+        .filter((item) => item === 6)
+        .reduce((acc, val) => acc + val, 0);
+
+    document.getElementById('ones-score').textContent = arr2;
+})
