@@ -1,4 +1,5 @@
 'use strict';
+//Starting the game by switching between start-panel and play-area panel
 
 document.getElementById('start').addEventListener('click', function () {
     const removePanel = document.getElementById('start-panel');
@@ -9,6 +10,7 @@ document.getElementById('start').addEventListener('click', function () {
 
 })
 
+//Hold the button eventListener (number)
 
 const diceImages = document.getElementsByClassName('dice-image');
 for (let diceImage of diceImages) {
@@ -21,19 +23,7 @@ for (let diceImage of diceImages) {
     })
 }
 
-
-
-document.getElementById('roll--dice').addEventListener('click', function () {
-    revealDice();
-    const diceImages = document.getElementsByClassName('hold-dice')
-    for (let diceImage of diceImages) {
-
-        let diceNumber = Math.floor(Math.random() * 6 + 1);
-        const imageURL = `assets/img/${diceNumber}.png`
-        diceImage.src = imageURL;
-
-    }
-})
+//Hold the button eventListener (color)
 
 const dices = document.getElementsByClassName('dice');
 for (let dice of dices) {
@@ -47,6 +37,24 @@ for (let dice of dices) {
     })
 }
 
+// Add eventListener to roll--dice button 
+
+document.getElementById('roll--dice').addEventListener('click', function () {
+    revealDice();
+    const diceImages = document.getElementsByClassName('hold-dice')
+    for (let diceImage of diceImages) {
+
+        let diceNumber = Math.floor(Math.random() * 6 + 1);
+        const imageURL = `assets/img/${diceNumber}.png`
+        diceImage.src = imageURL;
+
+    }
+})
+
+/** 
+ *  Removes the red cap and make the dices visible
+ */
+
 function revealDice() {
     const redDices = document.getElementsByClassName('red');
     const diceImages = document.getElementsByClassName('dice-image');
@@ -58,7 +66,9 @@ function revealDice() {
     }
 }
 
-document.getElementById('ones-score').addEventListener('click', function () {
+// Adds current score to apprpriate line in score-container
+
+document.getElementById('roll--dice').addEventListener('click', function () {
     let arr = []
     for (let diceImage of diceImages) {
         arr.push(diceImage.getAttribute('src'));
@@ -68,5 +78,5 @@ document.getElementById('ones-score').addEventListener('click', function () {
         .filter((item) => item === 6)
         .reduce((acc, val) => acc + val, 0);
 
-    document.getElementById('ones-score').textContent = arr2;
-})
+    document.getElementById('sixes-score').textContent = arr2;
+});

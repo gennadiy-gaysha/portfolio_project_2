@@ -22,7 +22,7 @@ body {
     margin: 50px auto;
     background: blue;
     border: #624afe 20px solid;
-    width: 70%;
+    width: 67%;
     height: 600px;
 }
 
@@ -53,17 +53,18 @@ h1 {
     margin: 50px auto;
     background: blue;
     border: #624afe 20px solid;
-    width: 70%;
+    width: 67%;
     height: 600px;
     display: none;
 }
+
 
 .dice-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 30px auto;
-    width: 75%;
+    width: 80%;
     background: rgb(0, 204, 0);
     height: 200px;
     box-shadow:
@@ -113,15 +114,20 @@ h1 {
 }
 
 .score-container {
+    font-size: 1.1rem;
     padding: 20px;
     margin: 30px auto;
-    width: 75%;
+    width: 65%;
     background: rgb(190, 190, 190);
     height: 200px;
     color: black;
     line-height: 200%;
     box-shadow:
         7px 12px 0 rgb(14, 14, 14);
+}
+
+table {
+    width: 100%;
 }
 
 .hidden {
