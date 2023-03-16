@@ -47,7 +47,7 @@ document.getElementById('roll--dice').addEventListener('click', function () {
         let diceNumber = Math.floor(Math.random() * 6 + 1);
         const imageURL = `assets/img/${diceNumber}.png`
         diceImage.src = imageURL;
-
+        displayCurrentScore();
     }
 })
 
@@ -66,9 +66,9 @@ function revealDice() {
     }
 }
 
-// Adds current score to apprpriate line in score-container
+// Displays current possible score for the line
 
-document.getElementById('roll--dice').addEventListener('click', function () {
+function displayCurrentScore() {
     let arr = []
     for (let diceImage of diceImages) {
         arr.push(diceImage.getAttribute('src'));
@@ -78,5 +78,18 @@ document.getElementById('roll--dice').addEventListener('click', function () {
         .filter((item) => item === 6)
         .reduce((acc, val) => acc + val, 0);
 
-    document.getElementById('sixes-score').textContent = arr2;
-});
+    document.getElementById('current-sixes-score').textContent = arr2;
+}
+
+//Writing down the current score to corresponding line:
+
+document.getElementById('current-sixes-score').addEventListener('click', function () {
+    const fixedSixes = document.getElementById('sixes-score');
+    const currentSixes = document.getElementById('current-sixes-score');
+    const sixes = document.getElementById('sixes');
+    fixedSixes.textContent = currentSixes.textContent;
+    fixedSixes.style.color = 'red';
+    sixes.style.color = 'red';
+    fixedSixes.classList.remove('hidden');
+    currentSixes.classList.add('hidden');
+})
