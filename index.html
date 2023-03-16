@@ -18,22 +18,22 @@
         <div class="dice-container">
             <div class="dice">
                 <img src="assets/img/red.png" alt="" class="red">
-                <img src="assets/img/1.png" alt="" class="dice-image hold-dice hidden">
+                <img src="assets/img/1.png" alt="" class="dice-image unhold-dice hidden">
             </div>
             <div class="dice">
                 <img src="assets/img/red.png" alt="" class="red">
-                <img src="assets/img/1.png" alt="" class="dice-image hold-dice hidden">
+                <img src="assets/img/1.png" alt="" class="dice-image unhold-dice hidden">
             </div>
             <div class="dice">
                 <img src="assets/img/red.png" alt="" class="red">
-                <img src="assets/img/1.png" alt="" class="dice-image hold-dice hidden">
+                <img src="assets/img/1.png" alt="" class="dice-image unhold-dice hidden">
             </div>
             <div class="dice">
                 <img src="assets/img/red.png" alt="" class="red">
-                <img src="assets/img/1.png" alt="" class="dice-image hold-dice hidden"></div>
+                <img src="assets/img/1.png" alt="" class="dice-image unhold-dice hidden"></div>
             <div class="dice">
                 <img src="assets/img/red.png" alt="" class="red">
-                <img src="assets/img/1.png" alt="" class="dice-image hold-dice hidden">
+                <img src="assets/img/1.png" alt="" class="dice-image unhold-dice hidden">
             </div>
             <div id="roll--dice">Roll dice</div>
         </div>
@@ -43,7 +43,7 @@
                 <tbody>
                     <tr>
                         <td id='ones'>Ones</td>
-                        <td id="ones-score">0</td>
+                        <td id="ones-score" class='score'>0</td>
                         <td>Three of a kind</td>
                         <td class="score">0</td>
                         <td></td>
@@ -55,7 +55,7 @@
                         <td>Four of a kind</td>
                         <td class="score">0</td>
                         <td>Left</td>
-                        <td id="left">0</td>
+                        <td id="left">10</td>
                     </tr>
                     <tr>
                         <td>Threes</td>
@@ -79,12 +79,12 @@
                         <td>Large Straight</td>
                         <td class="score">0</td>
                         <td>Total</td>
-                        <td id="total">0</td>
+                        <td id="total">24</td>
                     </tr>
                     <tr>
                         <td id='sixes'>Sixes</td>
-                        <td id="sixes-score" class="hidden">0</td>
-                        <td id="current-sixes-score">0</td>
+                        <td id="sixes-score" class="hidden fixed-score">0</td>
+                        <td id="current-sixes-score" class='score'>0</td>
                         <td>Yahtzee</td>
                         <td class="score">0</td>
                         <td></td>

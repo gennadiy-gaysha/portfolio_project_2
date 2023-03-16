@@ -15,33 +15,34 @@ document.getElementById('start').addEventListener('click', function () {
 const diceImages = document.getElementsByClassName('dice-image');
 for (let diceImage of diceImages) {
     diceImage.addEventListener('click', function () {
-        if (this.classList.contains('hold-dice')) {
-            this.classList.remove('hold-dice');
+        if (this.classList.contains('unhold-dice')) {
+            this.classList.remove('unhold-dice');
         } else {
-            this.classList.add('hold-dice');
+            this.classList.add('unhold-dice');
         }
     })
 }
 
-//Hold the button eventListener (color)
+/**
+ *  Switching between white and yellow (hold dice) color
+ * after clicking "Roll Dice" button by adding eventListener to it
+ * */
 
-const dices = document.getElementsByClassName('dice');
-for (let dice of dices) {
-    dice.addEventListener('click', function () {
-        if (this.style.backgroundColor === 'yellow') {
-            this.style.backgroundColor = 'white'
-            console.log(this.style.backgroundColor);
-        } else {
-            this.style.backgroundColor = 'yellow'
-        }
-    })
+function holdButtonColor() {
+    if (this.style.backgroundColor === 'yellow') {
+        this.style.backgroundColor = 'white'
+        console.log(this.style.backgroundColor);
+    } else {
+        this.style.backgroundColor = 'yellow'
+    }
 }
+
 
 // Add eventListener to roll--dice button 
 
 document.getElementById('roll--dice').addEventListener('click', function () {
     revealDice();
-    const diceImages = document.getElementsByClassName('hold-dice')
+    const diceImages = document.getElementsByClassName('unhold-dice')
     for (let diceImage of diceImages) {
 
         let diceNumber = Math.floor(Math.random() * 6 + 1);
@@ -49,6 +50,12 @@ document.getElementById('roll--dice').addEventListener('click', function () {
         diceImage.src = imageURL;
         displayCurrentScore();
     }
+    //This allows us to chage the color (white to yellow and vice versa) of the dice only when 
+    //'Roll dice' button is clicked (but not before!)
+    const dices = document.getElementsByClassName('dice');
+    for (let dice of dices) {
+        dice.addEventListener('click', holdButtonColor)
+    };
 })
 
 /** 
@@ -81,18 +88,27 @@ function displayCurrentScore() {
     document.getElementById('current-sixes-score').textContent = arr2;
 }
 
-//Writing down the current score to "Sixes" line:
+//Writing down the current score to "Sixes" line and add it to Left and Total lines:
 
 document.getElementById('current-sixes-score').addEventListener('click', function () {
     const fixedSixes = document.getElementById('sixes-score');
+
     const currentSixes = document.getElementById('current-sixes-score');
     const sixes = document.getElementById('sixes');
     const left = document.getElementById('left');
     const total = document.getElementById('total');
 
     fixedSixes.textContent = currentSixes.textContent;
-    left.textContent = currentSixes.textContent;
-    total.textContent = currentSixes.textContent;
+    const fixedSixesNumber = parseInt(fixedSixes.textContent);
+
+    let leftNumber = parseInt(left.textContent)
+    leftNumber += fixedSixesNumber;
+    left.textContent = leftNumber;
+
+    let totalNumber = parseInt(total.textContent)
+    totalNumber += fixedSixesNumber;
+    total.textContent = totalNumber;
+
     fixedSixes.style.color = 'red';
     sixes.style.color = 'red';
     fixedSixes.classList.remove('hidden');
