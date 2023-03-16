@@ -81,13 +81,18 @@ function displayCurrentScore() {
     document.getElementById('current-sixes-score').textContent = arr2;
 }
 
-//Writing down the current score to corresponding line:
+//Writing down the current score to "Sixes" line:
 
 document.getElementById('current-sixes-score').addEventListener('click', function () {
     const fixedSixes = document.getElementById('sixes-score');
     const currentSixes = document.getElementById('current-sixes-score');
     const sixes = document.getElementById('sixes');
+    const left = document.getElementById('left');
+    const total = document.getElementById('total');
+
     fixedSixes.textContent = currentSixes.textContent;
+    left.textContent = currentSixes.textContent;
+    total.textContent = currentSixes.textContent;
     fixedSixes.style.color = 'red';
     sixes.style.color = 'red';
     fixedSixes.classList.remove('hidden');
