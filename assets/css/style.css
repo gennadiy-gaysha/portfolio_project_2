@@ -42,6 +42,7 @@ h1 {
     display: block;
     margin: 50px auto;
     padding: 20px;
+    cursor: pointer;
 }
 
 #start:active {
@@ -100,11 +101,16 @@ h1 {
     font-size: 18px;
     box-shadow:
         5px 10px 0 rgb(14, 14, 14);
+    cursor: pointer;
 }
 
 .dice img {
     width: 100px;
     height: 100px;
+}
+
+.dice-image {
+    cursor: pointer;
 }
 
 .dice:active,
@@ -130,14 +136,24 @@ table {
     width: 100%;
 }
 
-.score,
+td {
+    cursor: default;
+}
+
+.score {
+    padding: 0 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
 .fixed-score {
     padding: 0 5px;
     text-align: center;
+    cursor: default;
 }
 
 .score:hover {
-    background-color: black;
+    background-color: rgb(14, 14, 14);
     color: white;
 }
 

@@ -39,23 +39,36 @@ function holdButtonColor() {
 
 
 // Add eventListener to roll--dice button 
-
+let counter = 3;
 document.getElementById('roll--dice').addEventListener('click', function () {
-    revealDice();
-    const diceImages = document.getElementsByClassName('unhold-dice')
-    for (let diceImage of diceImages) {
 
-        let diceNumber = Math.floor(Math.random() * 6 + 1);
-        const imageURL = `assets/img/${diceNumber}.png`
-        diceImage.src = imageURL;
-        displayCurrentScore();
+    if (counter > 0) {
+        revealDice();
+        const diceImages = document.getElementsByClassName('unhold-dice')
+        for (let diceImage of diceImages) {
+
+            let diceNumber = Math.floor(Math.random() * 6 + 1);
+            const imageURL = `assets/img/${diceNumber}.png`
+            diceImage.src = imageURL;
+            displayCurrentScore();
+        }
+        //This allows us to chage the color (white to yellow and vice versa) of the dice only when 
+        //'Roll dice' button is clicked (but not before!)
+        const dices = document.getElementsByClassName('dice');
+        for (let dice of dices) {
+            dice.addEventListener('click', holdButtonColor)
+        };
+
+        document.getElementById('current-sixes-score').addEventListener('click', addSixes);
+    } else {
+        alert('Please, choose the line to enter your current score');
+
     }
-    //This allows us to chage the color (white to yellow and vice versa) of the dice only when 
-    //'Roll dice' button is clicked (but not before!)
-    const dices = document.getElementsByClassName('dice');
-    for (let dice of dices) {
-        dice.addEventListener('click', holdButtonColor)
-    };
+
+
+    counter -= 1;
+    console.log(counter);
+
 })
 
 /** 
@@ -73,7 +86,9 @@ function revealDice() {
     }
 }
 
-// Displays current possible score for the line
+/** 
+ * Displays current possible score for the line in score table
+ * */
 
 function displayCurrentScore() {
     let arr = []
@@ -88,9 +103,19 @@ function displayCurrentScore() {
     document.getElementById('current-sixes-score').textContent = arr2;
 }
 
-//Writing down the current score to "Sixes" line and add it to Left and Total lines:
+/**
+ * Writing down the current score to "Sixes" line after clicking 'Roll Dice' button 
+ * and add it to Left and Total lines:
+ *  */
 
-document.getElementById('current-sixes-score').addEventListener('click', function () {
+let scoreEntered = false;
+
+function enterScore() {
+    counter = 3;
+}
+
+function addSixes() {
+    enterScore();
     const fixedSixes = document.getElementById('sixes-score');
 
     const currentSixes = document.getElementById('current-sixes-score');
@@ -113,4 +138,30 @@ document.getElementById('current-sixes-score').addEventListener('click', functio
     sixes.style.color = 'red';
     fixedSixes.classList.remove('hidden');
     currentSixes.classList.add('hidden');
-})
+    initialState();
+}
+
+function initialState() {
+    const dices = document.getElementsByClassName('dice');
+    for (let dice of dices) {
+        dice.style.backgroundColor = 'white';
+    }
+
+    const diceImages = document.getElementsByClassName('dice-image');
+    for (let diceImage of diceImages) {
+        diceImage.classList.add('unhold-dice');
+    }
+
+    const redDices = document.getElementsByClassName('red');
+    for (let redDice of redDices) {
+        redDice.classList.remove('hidden');
+    }
+    for (let diceImage of diceImages) {
+        diceImage.classList.add('hidden');
+    }
+
+    // This blocks changing dice color from white to yellow until the "Roll Dice button will be clicked again"
+    for (let dice of dices) {
+        dice.removeEventListener('click', holdButtonColor)
+    };
+}
