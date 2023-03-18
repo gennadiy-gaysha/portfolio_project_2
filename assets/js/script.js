@@ -61,14 +61,21 @@ document.getElementById('roll--dice').addEventListener('click', function () {
 
         //Adding this eventListener here allows us to write down (fix) current score only after
         //the 'Roll dice' button is clicked (but not before!)
-        document.getElementById('current-sixes-score').addEventListener('click', addSixes);
+        // ============================================================================
+        // document.getElementById('current-sixes-score').addEventListener('click', addScore);
+        // ============================================================================
+        const currentScores = document.getElementsByClassName('current-score');
+        for (let currentScore of currentScores) {
+            currentScore.addEventListener('click', addScore);
+        }
+
+        // ============================================================================
     } else {
         alert('Please, choose the line to enter your current score');
     }
     counter -= 1;
     //Adding this statement here prevents from changing dice color just after the third throw
     if (counter === 0) {
-        console.log(counter);
         const dices = document.getElementsByClassName('dice');
         for (let dice of dices) {
             dice.removeEventListener('click', holdButtonColor)
@@ -174,12 +181,18 @@ function displayCurrentScore() {
     }
     rightPanelScore(arrRight);
 
-    document.getElementById('current-ones-score').textContent = arr1;
-    document.getElementById('current-twos-score').textContent = arr2;
-    document.getElementById('current-threes-score').textContent = arr3;
-    document.getElementById('current-fours-score').textContent = arr4;
-    document.getElementById('current-fives-score').textContent = arr5;
-    document.getElementById('current-sixes-score').textContent = arr6;
+    document.getElementById('current-ones-score').textContent =
+        document.getElementById('fixed-ones-score').textContent = arr1;
+    document.getElementById('current-twos-score').textContent =
+        document.getElementById('fixed-twos-score').textContent = arr2;
+    document.getElementById('current-threes-score').textContent =
+        document.getElementById('fixed-threes-score').textContent = arr3;
+    document.getElementById('current-fours-score').textContent =
+        document.getElementById('fixed-fours-score').textContent = arr4
+    document.getElementById('current-fives-score').textContent =
+        document.getElementById('fixed-fives-score').textContent = arr5;
+    document.getElementById('current-sixes-score').textContent =
+        document.getElementById('fixed-sixes-score').textContent = arr6;
 
     document.getElementById('current-threeOf-score').textContent = threeOfAKind;
     document.getElementById('current-fourOf-score').textContent = fourOfAKind;
@@ -232,11 +245,13 @@ function initialState() {
  * (possible only after clicking 'Roll Dice' button) and add it to Left and Total lines:
  *  */
 
+// ===================================================================================
+/*
 function addSixes() {
     //assigns value 3 to global variable counter
     enterScore();
     //After writing down (fixing) the score these elements become visible (display: block)
-    const fixedSixes = document.getElementById('sixes-score');
+    const fixedSixes = document.getElementById('fixed-sixes-score');
     //After writing down (fixing) the score these elements become invisible (display: none)
     const currentSixes = document.getElementById('current-sixes-score');
 
@@ -267,13 +282,32 @@ function addSixes() {
     initialState();
     deleteCurrentScore();
 }
+*/
+// ================================================================================
+function addScore() {
+    const removeCurrents = document.getElementsByClassName('current-score');
+    const addFixeds = document.getElementsByClassName('fixed-score');
+
+    for (let removeCurrent of removeCurrents) {
+        if (!this.classList.contains('hidden')) {
+            removeCurrent.classList.add('hidden');
+        }
+
+    }
+    for (let addFixed of addFixeds) {
+        if (this.classList.contains('hidden')) {
+            addFixed.classList.remove('hidden');
+        }
+    }
+}
+
 
 /**
  * Resets all the score lines that were not clicked after fixing current score
  */
 
 function deleteCurrentScore() {
-    const removeEls = document.getElementsByClassName('score');
+    const removeEls = document.getElementsByClassName('current-score');
     for (let removeEl of removeEls) {
         removeEl.textContent = 0;
     }

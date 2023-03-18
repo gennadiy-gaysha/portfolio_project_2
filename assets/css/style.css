@@ -140,7 +140,7 @@ td {
     cursor: default;
 }
 
-.score {
+.current-score {
     padding: 0 5px;
     text-align: center;
     cursor: pointer;
@@ -152,7 +152,7 @@ td {
     cursor: default;
 }
 
-.score:hover {
+.current-score:hover {
     background-color: rgb(14, 14, 14);
     color: white;
 }
