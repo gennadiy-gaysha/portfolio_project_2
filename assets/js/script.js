@@ -92,11 +92,14 @@ function revealDice() {
 }
 
 /** 
- * Displays current possible score for the line in score table
+ * Displays current possible score for the lines in score table
  * by retrieving dice number from img src attribute value
  * */
 
 function displayCurrentScore() {
+
+    //Left panel of score table
+
     let arr = [];
     for (let diceImage of diceImages) {
         arr.push(diceImage.getAttribute('src'));
@@ -122,8 +125,8 @@ function displayCurrentScore() {
         .reduce((acc, val) => acc + val, 0);
     let chance = arr.map((item) => parseInt(item.match(/\d+/))).reduce((acc, val) => acc + val, 0);
 
-    let arrRight = arr.map((item) => parseInt(item.match(/\d+/)));
-    const setRight = new Set([...arrRight]);
+    //Right panel of score table
+
     let threeOfAKind = 0;
     let fourOfAKind = 0;
     let smallStraight = 0;
@@ -131,19 +134,45 @@ function displayCurrentScore() {
     let fullHouse = 0;
     let yahtzee = 0;
 
+    //Array of dice numbers for the right side panel 
+    let arrRight = arr.map((item) => parseInt(item.match(/\d+/)));
 
-    if (setRight.size === 5 && setRight.has(1)) {
-        smallStraight = 30;
-    } else if (setRight.size === 5 && !setRight.has(1)) {
-        largeStraight = 40;
-    } else if (setRight.size === 2) {
-        fullHouse = 25;
-        fourOfAKind = arr.map((item) => parseInt(item.match(/\d+/))).reduce((acc, val) => acc + val, 0);
-    } else if (setRight.size === 3) {
-        threeOfAKind = arr.map((item) => parseInt(item.match(/\d+/))).reduce((acc, val) => acc + val, 0);
-    } else if (setRight.size === 1) {
-        yahtzee = 50;
+    /**
+     * Calculates possible score options in Right panel lines:
+     */
+
+    function rightPanelScore(diceRoll) {
+
+        //1. Calculating score for Small Straight, Large Straight and Yahtzee lines:
+
+        const setRight = new Set([...arrRight]);
+
+        if (setRight.size === 5 && !setRight.has(6)) {
+            smallStraight = 30;
+        } else if (setRight.size === 5 && !setRight.has(1)) {
+            largeStraight = 40;
+        } else if (setRight.size === 1) {
+            yahtzee = 50;
+        }
+
+        //2. Calculating score for Three of a kins, Four of a kind and Yahtzee lines:
+
+        const counts = {};
+        for (const i of diceRoll) {
+            counts[i] = (counts[i] || 0) + 1;
+        }
+        for (const count of Object.values(counts)) {
+            if (count >= 4) {
+                threeOfAKind = 30;
+                fourOfAKind = 40;
+            } else if (count >= 3 && setRight.size === 2) {
+                fullHouse = 25;
+            } else if (count >= 3) {
+                threeOfAKind = 30;
+            }
+        }
     }
+    rightPanelScore(arrRight);
 
     document.getElementById('current-ones-score').textContent = arr1;
     document.getElementById('current-twos-score').textContent = arr2;
@@ -203,8 +232,6 @@ function initialState() {
  * (possible only after clicking 'Roll Dice' button) and add it to Left and Total lines:
  *  */
 
-// ============================================================================
-/*
 function addSixes() {
     //assigns value 3 to global variable counter
     enterScore();
@@ -238,41 +265,16 @@ function addSixes() {
     //Calling this function here allows us return dices to the starting point, when they are red-capped,
     //have white background (.dice) and ready to get random numbers (.dice-image, class="unhold-dice") 
     initialState();
+    deleteCurrentScore();
 }
-*/
-// ============================================================================
 
-function addSixes() {
-    //assigns value 3 to global variable counter
-    enterScore();
-    //After writing down (fixing) the score these elements become visible (display: block)
-    const fixedSixes = document.getElementById('sixes-score');
-    //After writing down (fixing) the score these elements become invisible (display: none)
-    const currentSixes = document.getElementById('current-sixes-score');
+/**
+ * Resets all the score lines that were not clicked after fixing current score
+ */
 
-    const sixes = document.getElementById('sixes');
-    const left = document.getElementById('left');
-    const total = document.getElementById('total');
-
-    fixedSixes.textContent = currentSixes.textContent;
-    const fixedSixesNumber = parseInt(fixedSixes.textContent);
-
-    //Adds current score to the "Left" value in the score-container
-    let leftNumber = parseInt(left.textContent)
-    leftNumber += fixedSixesNumber;
-    left.textContent = leftNumber;
-
-    //Adds current score to the "Total" value in the score-container
-    let totalNumber = parseInt(total.textContent)
-    totalNumber += fixedSixesNumber;
-    total.textContent = totalNumber;
-
-    //Changes color of the fixed score line from black to red;
-    fixedSixes.style.color = 'red';
-    sixes.style.color = 'red';
-    fixedSixes.classList.remove('hidden');
-    currentSixes.classList.add('hidden');
-    //Calling this function here allows us return dices to the starting point, when they are red-capped,
-    //have white background (.dice) and ready to get random numbers (.dice-image, class="unhold-dice") 
-    initialState();
-}
+function deleteCurrentScore() {
+    const removeEls = document.getElementsByClassName('score');
+    for (let removeEl of removeEls) {
+        removeEl.textContent = 0;
+    }
+};
