@@ -64,9 +64,14 @@ document.getElementById('roll--dice').addEventListener('click', function () {
         // =========================================================================
         //document.getElementById('current-sixes-score').addEventListener('click', addSixes);
         // =========================================================================
-        const currentScore = document.querySelectorAll('.current-score');
-        currentScore.forEach(element => {
-            element.addEventListener('click', addScore);
+        const currentScoreLeft = document.querySelectorAll('.left-current-score');
+        currentScoreLeft.forEach(element => {
+            element.addEventListener('click', addScoreLeft);
+        });
+
+        const currentScoreRight = document.querySelectorAll('.right-current-score');
+        currentScoreRight.forEach(element => {
+            element.addEventListener('click', addScoreRight);
         });
 
         // =========================================================================
@@ -83,10 +88,10 @@ document.getElementById('roll--dice').addEventListener('click', function () {
     }
 })
 // ======================================================================
-function addScore(event) {
+function addScoreLeft(event) {
     enterScore(); //counter returns to 3 after score is added
 
-    const currentScore = document.querySelectorAll('.current-score');
+    const currentScoreLeft = document.querySelectorAll('.left-current-score');
 
     //Current score passed to the fixed score
     this.nextElementSibling.textContent = event.target.textContent;
@@ -120,12 +125,60 @@ function addScore(event) {
 
     //Removes eventListener from each elements with class 'current-score' time the '.current-score' 
     //element is clicked
-    currentScore.forEach(element => {
-        element.removeEventListener('click', addScore);
+    currentScoreLeft.forEach(element => {
+        element.removeEventListener('click', addScoreLeft);
     });
 
     initialState();
-    deleteCurrentScore();
+    deleteCurrentScoreLeft();
+}
+
+// ================================================================================
+//Right panel score function
+// ================================================================================
+function addScoreRight(event) {
+    enterScore(); //counter returns to 3 after score is added
+
+    const currentScoreRight = document.querySelectorAll('.right-current-score');
+
+    //Current score passed to the fixed score
+    this.nextElementSibling.textContent = event.target.textContent;
+    // =======================================================================
+    const currentFixed = event.target.textContent;
+    const right = document.getElementById('right');
+    const total = document.getElementById('total');
+
+
+    const currentFixedNumber = parseInt(currentFixed);
+
+    //Adds current score to the "Left" value in the score-container
+    let rightNumber = parseInt(right.textContent)
+    rightNumber += currentFixedNumber;
+    right.textContent = rightNumber;
+
+    //Adds current score to the "Total" value in the score-container
+    let totalNumber = parseInt(total.textContent)
+    totalNumber += currentFixedNumber;
+    total.textContent = totalNumber;
+    // =======================================================================
+
+
+    // Hides the clicked current-score element
+    event.target.style.display = 'none';
+
+    //Displays fixed score element that was generated
+    this.nextElementSibling.style.display = 'block';
+    this.nextElementSibling.style.color = 'red';
+    this.previousElementSibling.style.color = 'red';
+
+    //Removes eventListener from each elements with class 'current-score' time the '.current-score' 
+    //element is clicked
+    currentScoreRight.forEach(element => {
+        element.removeEventListener('click', addScoreRight);
+    });
+
+    initialState();
+    deleteCurrentScoreRight();
 }
 
 
@@ -333,8 +386,15 @@ function addSixes() {
  * Resets all the score lines that were not clicked after fixing current score
  */
 
-function deleteCurrentScore() {
-    const removeEls = document.getElementsByClassName('current-score');
+function deleteCurrentScoreLeft() {
+    const removeEls = document.getElementsByClassName('left-current-score');
+    for (let removeEl of removeEls) {
+        removeEl.textContent = 0;
+    }
+};
+
+function deleteCurrentScoreRight() {
+    const removeEls = document.getElementsByClassName('right-current-score');
     for (let removeEl of removeEls) {
         removeEl.textContent = 0;
     }
