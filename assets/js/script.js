@@ -1,6 +1,8 @@
 'use strict';
 //Starting the game by switching between start-panel and play-area panel
 
+let diceSound = new Audio('assets/css/style.css');
+
 document.getElementById('start').addEventListener('click', function () {
     const removePanel = document.getElementById('start-panel');
     const addPanel = document.getElementById('play-area');
@@ -40,10 +42,12 @@ function holdButtonColor() {
 // Add eventListener to "Roll Dice" (#roll--dice) button 
 let counter = 3; //this global variable is used only once when the game starts
 document.getElementById('roll--dice').addEventListener('click', function () {
-
+    diceSound.play();
     if (counter > 0) {
         //Calling this function here allows us to remove the red cap and make the dice numbers visible
         revealDice();
+
+
 
         const diceImages = document.getElementsByClassName('unhold-dice');
         for (let diceImage of diceImages) {
