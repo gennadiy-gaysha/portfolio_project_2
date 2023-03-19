@@ -113,6 +113,20 @@ function addScoreLeft(event) {
     let totalNumber = parseInt(total.textContent)
     totalNumber += currentFixedNumber;
     total.textContent = totalNumber;
+
+    const bonusText = document.getElementById('bonus');
+    const bonus = document.getElementById('fixed-bonus-score');
+    const bonusRight = document.getElementById('bonus-right');
+    if (parseInt(left.textContent) >= 63) {
+        bonus.textContent = 35;
+        bonusRight.textContent = 35;
+        leftNumber += parseInt(bonus.textContent);
+        left.textContent = leftNumber;
+        totalNumber += parseInt(bonus.textContent);
+        total.textContent = totalNumber;
+        bonus.style.color = 'red'
+        bonusText.style.color = 'red'
+    }
     // =======================================================================
 
 
@@ -346,52 +360,6 @@ function initialState() {
     };
 }
 
-/**
- * Allows to write down the current score to "Sixes" line by clicking on it 
- * (possible only after clicking 'Roll Dice' button) and add it to Left and Total lines:
- *  */
-// =========================================================================
-/*
-function addSixes() {
-    //assigns value 3 to global variable counter
-    enterScore();
-    //After writing down (fixing) the score these elements become visible (display: block)
-    const fixedSixes = document.getElementById('fixed-sixes-score');
-    //After writing down (fixing) the score these elements become invisible (display: none)
-    const currentSixes = document.getElementById('current-sixes-score');
-
-    const sixes = document.getElementById('sixes');
-    const left = document.getElementById('left');
-    const total = document.getElementById('total');
-
-    fixedSixes.textContent = currentSixes.textContent;
-    const fixedSixesNumber = parseInt(fixedSixes.textContent);
-
-    //Adds current score to the "Left" value in the score-container
-    let leftNumber = parseInt(left.textContent)
-    leftNumber += fixedSixesNumber;
-    left.textContent = leftNumber;
-
-    //Adds current score to the "Total" value in the score-container
-    let totalNumber = parseInt(total.textContent)
-    totalNumber += fixedSixesNumber;
-    total.textContent = totalNumber;
-
-    //Changes color of the fixed score line from black to red;
-    fixedSixes.style.color = 'red';
-    sixes.style.color = 'red';
-    fixedSixes.classList.remove('hidden');
-    currentSixes.classList.add('hidden');
-    //Calling this function here allows us return dices to the starting point, when they are red-capped,
-    //have white background (.dice) and ready to get random numbers (.dice-image, class="unhold-dice") 
-    initialState();
-    deleteCurrentScore();
-}
-*/
-// =========================================================================
-
-
-// =========================================================================
 /**
  * Resets all the score lines that were not clicked after fixing current score
  */

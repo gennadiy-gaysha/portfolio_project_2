@@ -11,6 +11,7 @@
     - Fours: Score the total of all dice showing the number 4.
     - Fives: Score the total of all dice showing the number 5.
     - Sixes: Score the total of all dice showing the number 6.
+    - Bonus: The Left section is the first six rows - ones, twos, threes, fours, fives and sixes. If the sum of your score in the Left section is greater than or equal to 63, you automatically get 35 bonus points.
     - Three of a kind: Score the total of all dice if there are at least three of the same number.
     - Four of a kind: Score the total of all dice if there are at least four of the same number.
     - Full house: Score 25 points if there are three of one number and two of another.
