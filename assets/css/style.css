@@ -146,6 +146,11 @@ td {
     cursor: pointer;
 }
 
+.score {
+    padding: 0 5px;
+    text-align: center;
+}
+
 .fixed-score {
     padding: 0 5px;
     text-align: center;

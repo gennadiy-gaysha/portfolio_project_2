@@ -61,15 +61,15 @@ document.getElementById('roll--dice').addEventListener('click', function () {
 
         //Adding this eventListener here allows us to write down (fix) current score only after
         //the 'Roll dice' button is clicked (but not before!)
-        // ============================================================================
-        // document.getElementById('current-sixes-score').addEventListener('click', addScore);
-        // ============================================================================
-        const currentScores = document.getElementsByClassName('current-score');
-        for (let currentScore of currentScores) {
-            currentScore.addEventListener('click', addScore);
-        }
+        // =========================================================================
+        //document.getElementById('current-sixes-score').addEventListener('click', addSixes);
+        // =========================================================================
+        const currentScore = document.querySelectorAll('.current-score');
+        currentScore.forEach(element => {
+            element.addEventListener('click', addScore);
+        });
 
-        // ============================================================================
+        // =========================================================================
     } else {
         alert('Please, choose the line to enter your current score');
     }
@@ -82,7 +82,55 @@ document.getElementById('roll--dice').addEventListener('click', function () {
         };
     }
 })
+// ======================================================================
+function addScore(event) {
+    enterScore(); //counter returns to 3 after score is added
 
+    const currentScore = document.querySelectorAll('.current-score');
+
+    //Current score passed to the fixed score
+    this.nextElementSibling.textContent = event.target.textContent;
+    // =======================================================================
+    const currentFixed = event.target.textContent;
+    const left = document.getElementById('left');
+    const total = document.getElementById('total');
+
+
+    const currentFixedNumber = parseInt(currentFixed);
+
+    //Adds current score to the "Left" value in the score-container
+    let leftNumber = parseInt(left.textContent)
+    leftNumber += currentFixedNumber;
+    left.textContent = leftNumber;
+
+    //Adds current score to the "Total" value in the score-container
+    let totalNumber = parseInt(total.textContent)
+    totalNumber += currentFixedNumber;
+    total.textContent = totalNumber;
+    // =======================================================================
+
+
+    // Hides the clicked current-score element
+    event.target.style.display = 'none';
+
+    //Displays fixed score element that was generated
+    this.nextElementSibling.style.display = 'block';
+    this.nextElementSibling.style.color = 'red';
+    this.previousElementSibling.style.color = 'red';
+
+    //Removes eventListener from each elements with class 'current-score' time the '.current-score' 
+    //element is clicked
+    currentScore.forEach(element => {
+        element.removeEventListener('click', addScore);
+    });
+
+    initialState();
+    deleteCurrentScore();
+}
+
+
+
+// ======================================================================
 /** 
  *  Removes the red cap and make the dices visible
  */
@@ -181,18 +229,12 @@ function displayCurrentScore() {
     }
     rightPanelScore(arrRight);
 
-    document.getElementById('current-ones-score').textContent =
-        document.getElementById('fixed-ones-score').textContent = arr1;
-    document.getElementById('current-twos-score').textContent =
-        document.getElementById('fixed-twos-score').textContent = arr2;
-    document.getElementById('current-threes-score').textContent =
-        document.getElementById('fixed-threes-score').textContent = arr3;
-    document.getElementById('current-fours-score').textContent =
-        document.getElementById('fixed-fours-score').textContent = arr4
-    document.getElementById('current-fives-score').textContent =
-        document.getElementById('fixed-fives-score').textContent = arr5;
-    document.getElementById('current-sixes-score').textContent =
-        document.getElementById('fixed-sixes-score').textContent = arr6;
+    document.getElementById('current-ones-score').textContent = arr1;
+    document.getElementById('current-twos-score').textContent = arr2;
+    document.getElementById('current-threes-score').textContent = arr3;
+    document.getElementById('current-fours-score').textContent = arr4
+    document.getElementById('current-fives-score').textContent = arr5;
+    document.getElementById('current-sixes-score').textContent = arr6;
 
     document.getElementById('current-threeOf-score').textContent = threeOfAKind;
     document.getElementById('current-fourOf-score').textContent = fourOfAKind;
@@ -214,6 +256,7 @@ function enterScore() {
 
 /**
  * Starting state of the dices at the beginning of each iteration (3 throw in one turn)
+ * when they are red-capped, have white background (.dice) and ready to get random numbers (.dice-image, class="unhold-dice") 
  */
 function initialState() {
     //white background
@@ -234,7 +277,7 @@ function initialState() {
     for (let diceImage of diceImages) {
         diceImage.classList.add('hidden');
     }
-    // This blocks changing dice color from white to yellow until the "Roll Dice button will be clicked again"
+    // This blocks changing dice color from white to yellow until the "Roll Dice" button will be clicked again
     for (let dice of dices) {
         dice.removeEventListener('click', holdButtonColor)
     };
@@ -244,8 +287,7 @@ function initialState() {
  * Allows to write down the current score to "Sixes" line by clicking on it 
  * (possible only after clicking 'Roll Dice' button) and add it to Left and Total lines:
  *  */
-
-// ===================================================================================
+// =========================================================================
 /*
 function addSixes() {
     //assigns value 3 to global variable counter
@@ -283,25 +325,10 @@ function addSixes() {
     deleteCurrentScore();
 }
 */
-// ================================================================================
-function addScore() {
-    const removeCurrents = document.getElementsByClassName('current-score');
-    const addFixeds = document.getElementsByClassName('fixed-score');
-
-    for (let removeCurrent of removeCurrents) {
-        if (!this.classList.contains('hidden')) {
-            removeCurrent.classList.add('hidden');
-        }
-
-    }
-    for (let addFixed of addFixeds) {
-        if (this.classList.contains('hidden')) {
-            addFixed.classList.remove('hidden');
-        }
-    }
-}
+// =========================================================================
 
 
+// =========================================================================
 /**
  * Resets all the score lines that were not clicked after fixing current score
  */
