@@ -34,6 +34,29 @@ h1 {
     letter-spacing: 0.1em;
 }
 
+#end-game {
+    margin: 50px auto;
+    background: blue;
+    border: #624afe 20px solid;
+    width: 67%;
+    height: 600px;
+    display: none;
+}
+
+#end-game h2 {
+    padding-top: 150px;
+    text-align: center;
+    font-size: 7em;
+    text-transform: capitalize;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+#end-game button {
+    line-height: 170%;
+    padding: 10px;
+}
+
 #start {
     box-shadow:
         5px 10px 0 rgb(14, 14, 14);

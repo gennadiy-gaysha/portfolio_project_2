@@ -1,7 +1,9 @@
 'use strict';
 //Starting the game by switching between start-panel and play-area panel
 
-let diceSound = new Audio('assets/css/style.css');
+let diceSound = new Audio('assets/js/dice-roll.mp3');
+let enterScoreSound = new Audio('assets/js/enter-score.mp3');
+let yahtzeeSound = new Audio('assets/js/yahtzee.mp3');
 
 document.getElementById('start').addEventListener('click', function () {
     const removePanel = document.getElementById('start-panel');
@@ -42,11 +44,14 @@ function holdButtonColor() {
 // Add eventListener to "Roll Dice" (#roll--dice) button 
 let counter = 3; //this global variable is used only once when the game starts
 document.getElementById('roll--dice').addEventListener('click', function () {
-    diceSound.play();
+
     if (counter > 0) {
         //Calling this function here allows us to remove the red cap and make the dice numbers visible
         revealDice();
 
+        //Add sound effect
+        diceSound.volume = 0.2;
+        diceSound.play();
 
 
         const diceImages = document.getElementsByClassName('unhold-dice');
@@ -92,8 +97,12 @@ document.getElementById('roll--dice').addEventListener('click', function () {
     }
 })
 // ======================================================================
+let leftScoreCount = 0;
+
 function addScoreLeft(event) {
+    leftScoreCount++;
     enterScore(); //counter returns to 3 after score is added
+    enterScoreSound.play();
 
     const currentScoreLeft = document.querySelectorAll('.left-current-score');
     const currentScoreRight = document.querySelectorAll('.right-current-score');
@@ -154,13 +163,18 @@ function addScoreLeft(event) {
 
     initialState();
     deleteCurrentScore();
+    endGame();
 }
 
 // ================================================================================
 //Right panel score function
 // ================================================================================
+let rightScoreCount = 0;
+
 function addScoreRight(event) {
+    rightScoreCount++;
     enterScore(); //counter returns to 3 after score is added
+    enterScoreSound.play();
 
     const currentScoreLeft = document.querySelectorAll('.left-current-score');
     const currentScoreRight = document.querySelectorAll('.right-current-score');
@@ -207,9 +221,23 @@ function addScoreRight(event) {
 
     initialState();
     deleteCurrentScore();
+    endGame();
 }
 
+function endGame() {
+    if (leftScoreCount === 6 && rightScoreCount === 7) {
+        yahtzeeSound.play();
+        document.getElementById('play-area').style.display = 'none';
+        document.getElementById('end-game').style.display = 'block';
 
+        const modalMessage = document.getElementById('message');
+        let textMessage = `The game is over. 
+        You have scored 
+        ${document.getElementById('total').textContent} points!`
+
+        modalMessage.innerHTML = textMessage;
+    }
+}
 
 // ======================================================================
 /** 
