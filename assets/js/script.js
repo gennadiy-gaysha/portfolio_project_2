@@ -92,6 +92,7 @@ function addScoreLeft(event) {
     enterScore(); //counter returns to 3 after score is added
 
     const currentScoreLeft = document.querySelectorAll('.left-current-score');
+    const currentScoreRight = document.querySelectorAll('.right-current-score');
 
     //Current score passed to the fixed score
     this.nextElementSibling.textContent = event.target.textContent;
@@ -129,8 +130,12 @@ function addScoreLeft(event) {
         element.removeEventListener('click', addScoreLeft);
     });
 
+    currentScoreRight.forEach(element => {
+        element.removeEventListener('click', addScoreRight);
+    });
+
     initialState();
-    deleteCurrentScoreLeft();
+    deleteCurrentScore();
 }
 
 // ================================================================================
@@ -139,6 +144,7 @@ function addScoreLeft(event) {
 function addScoreRight(event) {
     enterScore(); //counter returns to 3 after score is added
 
+    const currentScoreLeft = document.querySelectorAll('.left-current-score');
     const currentScoreRight = document.querySelectorAll('.right-current-score');
 
     //Current score passed to the fixed score
@@ -173,12 +179,16 @@ function addScoreRight(event) {
 
     //Removes eventListener from each elements with class 'current-score' time the '.current-score' 
     //element is clicked
+    currentScoreLeft.forEach(element => {
+        element.removeEventListener('click', addScoreLeft);
+    });
+
     currentScoreRight.forEach(element => {
         element.removeEventListener('click', addScoreRight);
     });
 
     initialState();
-    deleteCurrentScoreRight();
+    deleteCurrentScore();
 }
 
 
@@ -386,16 +396,15 @@ function addSixes() {
  * Resets all the score lines that were not clicked after fixing current score
  */
 
-function deleteCurrentScoreLeft() {
-    const removeEls = document.getElementsByClassName('left-current-score');
-    for (let removeEl of removeEls) {
+function deleteCurrentScore() {
+    const removeElsLeft = document.getElementsByClassName('left-current-score');
+    const removeElsRight = document.getElementsByClassName('right-current-score');
+
+    for (let removeEl of removeElsLeft) {
         removeEl.textContent = 0;
     }
-};
 
-function deleteCurrentScoreRight() {
-    const removeEls = document.getElementsByClassName('right-current-score');
-    for (let removeEl of removeEls) {
+    for (let removeEl of removeElsRight) {
         removeEl.textContent = 0;
     }
 };
