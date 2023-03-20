@@ -43,21 +43,29 @@ h1 {
     display: none;
 }
 
-#end-game h2 {
-    padding-top: 150px;
+#end-game h1 {
+    padding-top: 130px;
     text-align: center;
-    font-size: 7em;
     text-transform: capitalize;
     letter-spacing: 0.1em;
     text-align: center;
+    line-height: 175%;
+    font-size: 400%;
 }
 
-#end-game button {
-    line-height: 170%;
+#end-game h1 span {
+    color: green;
+    background-color: #fff;
     padding: 10px;
 }
 
-#start {
+/* #end-game button {
+    line-height: 170%;
+    padding: 10px;
+} */
+
+#start,
+#start-new-game {
     box-shadow:
         5px 10px 0 rgb(14, 14, 14);
     font-family: 'Press Start 2P', sans-serif;
@@ -68,7 +76,8 @@ h1 {
     cursor: pointer;
 }
 
-#start:active {
+#start:active,
+#start-new-game:active {
     box-shadow: 5px 5px 0 rgb(14, 14, 14);
     transform: translate(0, 5px);
 }

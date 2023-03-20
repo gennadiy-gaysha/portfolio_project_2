@@ -45,73 +45,73 @@
             <table>
                 <tbody>
                     <tr>
-                        <td id='ones'>Ones</td>
+                        <td class='line-name'>Ones</td>
                         <td id="current-ones-score" class='current-score left-current-score'>0</td>
                         <td id="fixed-ones-score" class="hidden fixed-score">555</td>
-                        <td id="three-of">Three of a kind</td>
+                        <td class='line-name'>Three of a kind</td>
                         <td id="current-threeOf-score" class='current-score right-current-score'>0</td>
                         <td id="fixed-threeOf-score" class="hidden fixed-score">0</td>
                         <td></td>
-                        <td class="score"></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td id="twos">Twos</td>
+                        <td class='line-name'>Twos</td>
                         <td id="current-twos-score" class='current-score left-current-score'>0</td>
                         <td id="fixed-twos-score" class="hidden fixed-score">0</td>
-                        <td id="four-of">Four of a kind</td>
+                        <td class='line-name'>Four of a kind</td>
                         <td id="current-fourOf-score" class='current-score right-current-score'>0</td>
                         <td id="fixed-fourOf-score" class="hidden fixed-score">0</td>
                         <td>Left</td>
                         <td id="left" class="score">0</td>
                     </tr>
                     <tr>
-                        <td id="threes">Threes</td>
+                        <td class='line-name'>Threes</td>
                         <td id="current-threes-score" class='current-score left-current-score'>0</td>
                         <td id="fixed-threes-score" class="hidden fixed-score">0</td>
-                        <td id="full-house">Full House</td>
+                        <td class='line-name'>Full House</td>
                         <td id="current-fhouse-score" class='current-score right-current-score'>0</td>
                         <td id="fixed-fhouse-score" class="hidden fixed-score">0</td>
                         <td>Right</td>
                         <td id="right" class="score">0</td>
                     </tr>
                     <tr>
-                        <td id="fours">Fours</td>
+                        <td class='line-name'>Fours</td>
                         <td id="current-fours-score" class='current-score left-current-score'>0</td>
                         <td id="fixed-fours-score" class="hidden fixed-score">0</td>
-                        <td id="small-straight">Small Straight</td>
+                        <td class='line-name'>Small Straight</td>
                         <td id="current-sstraight-score" class='current-score right-current-score'>0</td>
                         <td id="fixed-sstraight-score" class="hidden fixed-score">0</td>
                         <td>Bonus</td>
                         <td id='bonus-right' class="score fixed-score">0</td>
                     </tr>
                     <tr>
-                        <td id='fives'>Fives</td>
+                        <td class='line-name'>Fives</td>
                         <td id="current-fives-score" class='current-score left-current-score'>0</td>
                         <td id="fixed-fives-score" class="hidden fixed-score">0</td>
-                        <td id="large-straight">Large Straight</td>
+                        <td class='line-name'>Large Straight</td>
                         <td id="current-lstraight-score" class='current-score right-current-score'>0</td>
                         <td id="fixed-lstraight-score" class="hidden fixed-score">0</td>
                         <td>Total</td>
-                        <td id="total" class='score'>0</td>
+                        <td id="total" class="score">0</td>
                     </tr>
                     <tr>
-                        <td id='sixes'>Sixes</td>
+                        <td class='line-name'>Sixes</td>
                         <td id="current-sixes-score" class='current-score left-current-score'>0</td>
                         <td id="fixed-sixes-score" class="hidden fixed-score">5</td>
-                        <td id="yahtzee">Yahtzee</td>
+                        <td class='line-name'>Yahtzee</td>
                         <td id="current-yahtzee-score" class='current-score right-current-score'>0</td>
                         <td id="fixed-yahtzee-score" class="hidden fixed-score">0</td>
                         <td></td>
-                        <td class="score"></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td id='bonus'>Bonus</td>
+                        <td id='bonus' class='line-name'>Bonus</td>
                         <td id="fixed-bonus-score" class="fixed-score">0</td>
-                        <td id="chance">Chance</td>
+                        <td class='line-name'>Chance</td>
                         <td id="current-chance-score" class='current-score right-current-score'>0</td>
                         <td id="fixed-chance-score" class="hidden fixed-score">0</td>
                         <td></td>
-                        <td class="score"></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
@@ -120,8 +120,9 @@
     </div>
 
     <div id="end-game">
-        <h2 id='message'></h2>
-        <button id="start">Play again<br>(one player)</button>
+        <h1 id='message'>The game is over.<br>You have
+            scored<br><span id='score'></span> points!</h1>
+        <button id="start-new-game">Play again</button>
     </div>
 
     <script src="assets/js/script.js"></script>

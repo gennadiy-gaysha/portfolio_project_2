@@ -144,10 +144,10 @@ function addScoreLeft(event) {
 
 
     // Hides the clicked current-score element
-    event.target.style.display = 'none';
+    event.target.classList.add('hidden');
 
     //Displays fixed score element that was generated
-    this.nextElementSibling.style.display = 'block';
+    this.nextElementSibling.classList.remove('hidden');
     this.nextElementSibling.style.color = 'red';
     this.previousElementSibling.style.color = 'red';
 
@@ -202,10 +202,10 @@ function addScoreRight(event) {
 
 
     // Hides the clicked current-score element
-    event.target.style.display = 'none';
+    event.target.classList.add('hidden');
 
     //Displays fixed score element that was generated
-    this.nextElementSibling.style.display = 'block';
+    this.nextElementSibling.classList.remove('hidden');
     this.nextElementSibling.style.color = 'red';
     this.previousElementSibling.style.color = 'red';
 
@@ -229,14 +229,43 @@ function endGame() {
         yahtzeeSound.play();
         document.getElementById('play-area').style.display = 'none';
         document.getElementById('end-game').style.display = 'block';
-
-        const modalMessage = document.getElementById('message');
-        let textMessage = `The game is over. 
-        You have scored 
-        ${document.getElementById('total').textContent} points!`
-
-        modalMessage.innerHTML = textMessage;
+        document.getElementById('score').innerHTML = `${document.getElementById('total').textContent}`
+        rightScoreCount = 0;
+        leftScoreCount = 0;
     }
+}
+
+document.getElementById('start-new-game').addEventListener('click', startNewGame);
+
+function startNewGame() {
+    document.getElementById('play-area').style.display = 'block';
+    document.getElementById('end-game').style.display = 'none';
+
+    const allZeroes = document.getElementsByClassName('current-score');
+    const fixedScores = document.getElementsByClassName('fixed-score');
+    const lineNames = document.getElementsByClassName('line-name');
+    const scores = document.getElementsByClassName('score');
+
+    for (let allZero of allZeroes) {
+        allZero.classList.remove('hidden');
+    }
+
+    for (let fixedScore of fixedScores) {
+        fixedScore.classList.add('hidden');
+    }
+
+    for (let lineName of lineNames) {
+        lineName.style.color = 'black'
+    }
+
+    for (let score of scores) {
+        score.textContent = 0;
+    }
+
+    document.getElementById('fixed-bonus-score').style.display = 'block';
+    document.getElementById('fixed-bonus-score').style.color = 'black';
+    document.getElementById('fixed-bonus-score').textContent = 0;
+    document.getElementById('bonus-right').style.display = 'block';
 }
 
 // ======================================================================
