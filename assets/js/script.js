@@ -5,6 +5,17 @@ let diceSound = new Audio('assets/js/dice-roll.mp3');
 let enterScoreSound = new Audio('assets/js/enter-score.mp3');
 let yahtzeeSound = new Audio('assets/js/yahtzee.mp3');
 
+document.getElementById('rules-button').addEventListener('click', function () {
+    document.getElementById('play-area').style.display = 'none';
+    document.getElementById('game-rules').style.display = 'block';
+
+})
+
+document.getElementById('back-button').addEventListener('click', function () {
+    document.getElementById('play-area').style.display = 'block';
+    document.getElementById('game-rules').style.display = 'none';
+})
+
 document.getElementById('start').addEventListener('click', function () {
     const removePanel = document.getElementById('start-panel');
     const addPanel = document.getElementById('play-area');
@@ -360,6 +371,7 @@ function displayCurrentScore() {
                 fourOfAKind = 40;
             } else if (count >= 3 && setRight.size === 2) {
                 fullHouse = 25;
+                threeOfAKind = 30;
             } else if (count >= 3) {
                 threeOfAKind = 30;
             }

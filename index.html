@@ -110,13 +110,66 @@
                         <td class='line-name'>Chance</td>
                         <td id="current-chance-score" class='current-score right-current-score'>0</td>
                         <td id="fixed-chance-score" class="hidden fixed-score">0</td>
-                        <td></td>
+                        <td id='rules'></td>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
+        <div class="info">
+            <div id='rules-button' class="element">Game rules</div>
+            <div class="element">Select dice</div>
+            <div class="element">Take dice</div>
+            <div class="element">Leave dice</div>
+            <div class="element">Roll dice</div>
+        </div>
+
+    </div>
+
+    <div id="game-rules">
+        <p>Yahtzee is a popular dice game that is played with five standard six-sided dice. The game consists of a
+            series of rounds, and each round involves rolling the dice up to three times in an attempt to get certain
+            combinations of dice faces.</p>
+        <br>
+        <h2>Basic rules of Yahtzee:</h2>
+        <br>
+        <ul>
+            <li>At the beginning of each round, the player rolls all five dice.</li>
+            <li>After the first roll, the player can choose to keep any number of dice and re-roll the rest. The player
+                can do this up to two more times.</li>
+            <li>Once the player has finished rolling the dice, they must choose a category to score. There are 13
+                categories, each with different requirements:
+                <ul id="scoring">
+                    <br>
+                    <li>Ones: Score the total of all dice showing the number 1.</li>
+                    <li>Twos: Score the total of all dice showing the number 2.</li>
+                    <li>Threes: Score the total of all dice showing the number 3.</li>
+                    <li>Fours: Score the total of all dice showing the number 4.</li>
+                    <li>Fives: Score the total of all dice showing the number 5.</li>
+                    <li>Sixes: Score the total of all dice showing the number 6.</li>
+                    <li>Bonus: The Left section is the first six rows - ones, twos, threes, fours, fives and sixes. If
+                        the sum of your score in the Left</li>
+                    <li>section is greater than or equal to 63, you automatically get 35 bonus points.</li>
+                    <li>Three of a kind: Score the total of all dice if there are at least three of the same number.
+                    </li>
+                    <li>Four of a kind: Score the total of all dice if there are at least four of the same number.</li>
+                    <li>Full house: Score 25 points if there are three of one number and two of another.</li>
+                    <li>Small straight: Score 30 points if there are four sequential numbers.</li>
+                    <li>Large straight: Score 40 points if there are five sequential numbers.</li>
+                    <li>Yahtzee: Score 50 points if all five dice show the same number.</li>
+                    <li>Chance: Score the total of all dice, regardless of the numbers.</li>
+                </ul>
+                <br>
+            </li>
+            <li>Once the player has chosen a category to score, they cannot choose that category again for the rest of
+                the game.</li>
+            <li>The game continues for 13 rounds, after which the player with the highest total score wins.</li>
+        </ul>
+        <br>
+        <p>These are the basic rules of Yahtzee, but there are many variations and additional rules that can be added to
+            make the game more interesting or challenging.</p>
+        <div id="back-button">Back to play</div>
     </div>
 
     <div id="end-game">
@@ -124,6 +177,8 @@
             scored<br><span id='score'></span> points!</h1>
         <button id="start-new-game">Play again</button>
     </div>
+
+
 
     <script src="assets/js/script.js"></script>
 </body>
