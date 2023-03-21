@@ -54,7 +54,34 @@ function holdButtonColor() {
 
 // Add eventListener to "Roll Dice" (#roll--dice) button 
 let counter = 3; //this global variable is used only once when the game starts
-document.getElementById('roll--dice').addEventListener('click', function () {
+document.getElementById('roll--dice').addEventListener('click', rollDice)
+
+document.getElementById('roll--dice').addEventListener('mousedown', function () {
+    this.style.boxShadow = '5px 5px 0 rgb(14, 14, 14)';
+    this.style.transform = 'translate(0, 5px)';
+});
+document.getElementById('roll--dice').addEventListener('mouseup', function () {
+    this.style.boxShadow = '5px 10px 0 rgb(14, 14, 14)';
+    this.style.transform = 'translate(0, 0)';
+});
+
+//Add clicking Enter or Spacebar button to fire rollDice function
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+        document.getElementById('roll--dice').style.boxShadow = '5px 5px 0 rgb(14, 14, 14)';
+        document.getElementById('roll--dice').style.transform = 'translate(0, 5px)';
+
+    }
+});
+document.addEventListener("keyup", function (event) {
+    if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+        document.getElementById('roll--dice').style.boxShadow = '5px 10px 0 rgb(14, 14, 14)';
+        document.getElementById('roll--dice').style.transform = 'translate(0, 0)';
+        rollDice();
+    }
+});
+
+function rollDice() {
 
     if (counter > 0) {
         //Calling this function here allows us to remove the red cap and make the dice numbers visible
@@ -106,7 +133,7 @@ document.getElementById('roll--dice').addEventListener('click', function () {
             dice.removeEventListener('click', holdButtonColor)
         };
     }
-})
+}
 // ======================================================================
 let leftScoreCount = 0;
 
@@ -241,8 +268,6 @@ function endGame() {
         document.getElementById('play-area').style.display = 'none';
         document.getElementById('end-game').style.display = 'block';
         document.getElementById('score').innerHTML = `${document.getElementById('total').textContent}`
-        rightScoreCount = 0;
-        leftScoreCount = 0;
     }
 }
 
@@ -277,7 +302,14 @@ function startNewGame() {
     document.getElementById('fixed-bonus-score').style.color = 'black';
     document.getElementById('fixed-bonus-score').textContent = 0;
     document.getElementById('bonus-right').style.display = 'block';
+
+    rightScoreCount = 0;
+    leftScoreCount = 0;
 }
+
+//Restart Game button
+
+document.getElementById('restart').addEventListener('click', startNewGame);
 
 // ======================================================================
 /** 

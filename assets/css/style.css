@@ -210,10 +210,10 @@ td {
 }
 
 .element {
-    width: 100px;
+    width: 150px;
     height: 25px;
     border: 2px solid #333;
-    margin: 0 20px;
+    margin: 0 30px;
     display: flex;
     background-color: rgb(235, 34, 148);
     justify-content: center;
@@ -223,15 +223,12 @@ td {
     font-size: 80%;
     text-align: center;
     color: #222;
+    cursor: pointer;
 }
 
 .element:active {
     box-shadow: 3px 3px 0 rgb(14, 14, 14);
     transform: translate(0, 3px);
-}
-
-#rules-button {
-    width: 120px;
 }
 
 #game-rules {
@@ -265,6 +262,7 @@ td {
     color: #222;
     margin-top: 5px;
     padding: 2.5px 0;
+    cursor: pointer;
 }
 
 #back-button:active {
