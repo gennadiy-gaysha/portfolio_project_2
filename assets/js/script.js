@@ -4,6 +4,8 @@
 let diceSound = new Audio('assets/js/dice-roll.mp3');
 let enterScoreSound = new Audio('assets/js/enter-score.mp3');
 let yahtzeeSound = new Audio('assets/js/yahtzee.mp3');
+let yahtzeeFiftySound = new Audio('assets/js/yahtzee_50.mp3');
+let bonusSound = new Audio('assets/js/bonus.mp3');
 
 document.getElementById('rules-button').addEventListener('click', function () {
     document.getElementById('play-area').style.display = 'none';
@@ -19,7 +21,9 @@ document.getElementById('back-button').addEventListener('click', function () {
 document.getElementById('start').addEventListener('click', function () {
     const removePanel = document.getElementById('start-panel');
     const addPanel = document.getElementById('play-area');
-
+    // ===============================================================================
+    document.getElementById('play-area').classList.remove('no-keyboard');
+    // ===============================================================================
     removePanel.style.display = 'none';
     addPanel.style.display = 'block';
 
@@ -66,6 +70,8 @@ document.getElementById('roll--dice').addEventListener('mouseup', function () {
 });
 
 //Add clicking Enter or Spacebar button to fire rollDice function
+
+
 document.addEventListener("keydown", function (event) {
     if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
         document.getElementById('roll--dice').style.boxShadow = '5px 5px 0 rgb(14, 14, 14)';
@@ -77,6 +83,7 @@ document.addEventListener("keyup", function (event) {
     if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
         document.getElementById('roll--dice').style.boxShadow = '5px 10px 0 rgb(14, 14, 14)';
         document.getElementById('roll--dice').style.transform = 'translate(0, 0)';
+
         rollDice();
     }
 });
@@ -136,10 +143,12 @@ function rollDice() {
 }
 // ======================================================================
 let leftScoreCount = 0;
+let bonusSoundPlayed = false;
 
 function addScoreLeft(event) {
     leftScoreCount++;
     enterScore(); //counter returns to 3 after score is added
+
     enterScoreSound.play();
 
     const currentScoreLeft = document.querySelectorAll('.left-current-score');
@@ -168,7 +177,7 @@ function addScoreLeft(event) {
     const bonusText = document.getElementById('bonus');
     const bonus = document.getElementById('fixed-bonus-score');
     const bonusRight = document.getElementById('bonus-right');
-    if (parseInt(left.textContent) >= 63) {
+    if (parseInt(left.textContent) >= 63 && !bonusSoundPlayed) {
         bonus.textContent = 35;
         bonusRight.textContent = 35;
         leftNumber += parseInt(bonus.textContent);
@@ -177,6 +186,9 @@ function addScoreLeft(event) {
         total.textContent = totalNumber;
         bonus.style.color = 'red'
         bonusText.style.color = 'red'
+        bonusSound.volume = 0.2;
+        bonusSound.play();
+        bonusSoundPlayed = true;
     }
     // =======================================================================
 
@@ -208,11 +220,14 @@ function addScoreLeft(event) {
 //Right panel score function
 // ================================================================================
 let rightScoreCount = 0;
+//Yahtzee_50 points won sound
+let yahtzeePlaySound = false;
 
 function addScoreRight(event) {
     rightScoreCount++;
     enterScore(); //counter returns to 3 after score is added
     enterScoreSound.play();
+
 
     const currentScoreLeft = document.querySelectorAll('.left-current-score');
     const currentScoreRight = document.querySelectorAll('.right-current-score');
@@ -256,6 +271,14 @@ function addScoreRight(event) {
     currentScoreRight.forEach(element => {
         element.removeEventListener('click', addScoreRight);
     });
+
+    if (document.getElementById("fixed-yahtzee-score").textContent === '50' && !yahtzeePlaySound) {
+        yahtzeeFiftySound.volume = 0.3;
+        yahtzeeFiftySound.play();
+        yahtzeePlaySound = true;
+    }
+
+    console.log(document.getElementById("fixed-threeOf-score").textContent);
 
     initialState();
     deleteCurrentScore();
