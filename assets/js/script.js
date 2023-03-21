@@ -21,12 +21,29 @@ document.getElementById('back-button').addEventListener('click', function () {
 document.getElementById('start').addEventListener('click', function () {
     const removePanel = document.getElementById('start-panel');
     const addPanel = document.getElementById('play-area');
-    // ===============================================================================
-    document.getElementById('play-area').classList.remove('no-keyboard');
-    // ===============================================================================
+
     removePanel.style.display = 'none';
     addPanel.style.display = 'block';
 
+    //Add clicking Enter or Spacebar button to fire rollDice function
+
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+            document.getElementById('roll--dice').style.boxShadow = '5px 5px 0 rgb(14, 14, 14)';
+            document.getElementById('roll--dice').style.transform = 'translate(0, 5px)';
+
+        }
+    });
+
+    document.addEventListener("keyup", function (event) {
+        if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+            document.getElementById('roll--dice').style.boxShadow = '5px 10px 0 rgb(14, 14, 14)';
+            document.getElementById('roll--dice').style.transform = 'translate(0, 0)';
+
+            rollDice();
+        }
+    });
 })
 
 //Hold the dice number on click
@@ -67,25 +84,6 @@ document.getElementById('roll--dice').addEventListener('mousedown', function () 
 document.getElementById('roll--dice').addEventListener('mouseup', function () {
     this.style.boxShadow = '5px 10px 0 rgb(14, 14, 14)';
     this.style.transform = 'translate(0, 0)';
-});
-
-//Add clicking Enter or Spacebar button to fire rollDice function
-
-
-document.addEventListener("keydown", function (event) {
-    if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
-        document.getElementById('roll--dice').style.boxShadow = '5px 5px 0 rgb(14, 14, 14)';
-        document.getElementById('roll--dice').style.transform = 'translate(0, 5px)';
-
-    }
-});
-document.addEventListener("keyup", function (event) {
-    if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
-        document.getElementById('roll--dice').style.boxShadow = '5px 10px 0 rgb(14, 14, 14)';
-        document.getElementById('roll--dice').style.transform = 'translate(0, 0)';
-
-        rollDice();
-    }
 });
 
 function rollDice() {
@@ -273,7 +271,7 @@ function addScoreRight(event) {
     });
 
     if (document.getElementById("fixed-yahtzee-score").textContent === '50' && !yahtzeePlaySound) {
-        yahtzeeFiftySound.volume = 0.3;
+        yahtzeeFiftySound.volume = 0.4;
         yahtzeeFiftySound.play();
         yahtzeePlaySound = true;
     }
