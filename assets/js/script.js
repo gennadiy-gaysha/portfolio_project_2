@@ -1,5 +1,21 @@
 'use strict';
+
+function saveResultsToLocal() {
+    localStorage.setItem('yahtzeeResults', JSON.stringify(yahtzeeResults));
+}
+
+function getResultsFromLocal() {
+    let results = localStorage.getItem('yahtzeeResults');
+    if (results) {
+        yahtzeeResults = JSON.parse(results);
+    }
+}
 //Starting the game by switching between start-panel and play-area panel
+// Create an empty object to store the results
+let yahtzeeResults = {
+    results: []
+};
+getResultsFromLocal();
 
 let diceSound = new Audio('assets/js/dice-roll.mp3');
 let enterScoreSound = new Audio('assets/js/enter-score.mp3');
@@ -296,13 +312,6 @@ function endGame() {
 
         // save the object in the localStorage
         const scoreObject = addResult(document.getElementById('total').textContent);
-
-        localStorage.setItem("scoreObject", JSON.stringify(scoreObject));
-
-        // retrieve the object from the localStorage
-        const storedObject = JSON.parse(localStorage.getItem("scoreObject"));
-
-        console.log(storedObject);
     }
 }
 
@@ -520,10 +529,6 @@ function deleteCurrentScore() {
 // ===============================================================================
 //Max Score
 // ===============================================================================
-// Create an empty object to store the results
-const yahtzeeResults = {
-    results: []
-};
 //line 291
 // Define a function to add new results to the object
 function addResult(score) {
@@ -535,6 +540,9 @@ function addResult(score) {
 
     yahtzeeResults.results.unshift(result);
     yahtzeeResults.results.sort((a, b) => b.score - a.score); // sort the array in descending order based on score
+
+    // Save the updated yahtzeeResults object to localStorage
+    saveResultsToLocal();
 
     // update the table with the sorted results
     const tableBody = document.querySelector("#resultsTable tbody");
