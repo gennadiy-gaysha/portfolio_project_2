@@ -276,8 +276,6 @@ function addScoreRight(event) {
         yahtzeePlaySound = true;
     }
 
-    console.log(document.getElementById("fixed-threeOf-score").textContent);
-
     initialState();
     deleteCurrentScore();
     endGame();
@@ -289,6 +287,34 @@ function endGame() {
         document.getElementById('play-area').style.display = 'none';
         document.getElementById('end-game').style.display = 'block';
         document.getElementById('score').innerHTML = `${document.getElementById('total').textContent}`
+
+        const scoreObject = addResult(document.getElementById('total').textContent);
+        const tableBody = document.querySelector("#resultsTable tbody");
+        // ==========================================================================================================
+
+        // Loop through the game results array and create a row for each game
+        scoreObject.results.forEach((game) => {
+            // Create a new row element
+            const row = document.createElement("tr");
+
+            // Create a date cell and add it to the row
+            const dateCell = document.createElement("td");
+            dateCell.textContent = new Date(game.date).toLocaleString();
+            row.appendChild(dateCell);
+
+            // Create a cell for each player's score and add them to the row
+
+            const scoreCell = document.createElement("td");
+            scoreCell.textContent = game.score;
+            row.appendChild(scoreCell);
+
+
+            // Add the row to the table body
+            tableBody.appendChild(row);
+            // ==========================================================================================================
+        });
+
+
     }
 }
 
@@ -502,3 +528,25 @@ function deleteCurrentScore() {
         removeEl.textContent = 0;
     }
 };
+
+// ===============================================================================
+//Max Score
+// ===============================================================================
+// Create an empty object to store the results
+const yahtzeeResults = {
+    results: []
+};
+//line 291
+// Define a function to add new results to the object
+function addResult(score) {
+    const result = {
+
+        date: new Date(),
+        date2: new Date(),
+        score: score
+    };
+
+    yahtzeeResults.results.push(result);
+
+    return yahtzeeResults;
+}

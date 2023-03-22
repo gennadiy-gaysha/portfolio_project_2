@@ -15,11 +15,11 @@
 </head>
 
 <body>
-    <div id="start-panel">
+    <div id="start-panel" class="main-panel">
         <h1>yahtzee</h1>
         <button id="start">Start game</button>
     </div>
-    <div id="play-area">
+    <div id="play-area" class="main-panel">
         <div class="dice-container">
             <div class="dice">
                 <img src="assets/img/red.png" alt="" class="red">
@@ -127,7 +127,7 @@
 
     </div>
 
-    <div id="game-rules">
+    <div id="game-rules" class="main-panel">
         <p>Yahtzee is a popular dice game that is played with five standard six-sided dice. The game consists of a
             series of rounds, and each round involves rolling the dice up to three times in an attempt to get certain
             combinations of dice faces.</p>
@@ -168,17 +168,34 @@
         </ul>
         <br>
         <p>These are the basic rules of Yahtzee, but there are many variations and additional rules that can be added to
-            make the game more interesting or challenging.</p>
+            make the game more interesting or challenging.</p><br>
+        <p>Useful tip 1: If you are not satisfied with your current result, you can restart the game by clicking on the
+            "Restart game" button below the score panel after you have entered your current points.</p><br>
+        <p>Useful tip 2: To roll the dice, you may also click on the "Enter" or "Spacebar" button on your keyboard.</p>
         <div id="back-button">Back to play</div>
     </div>
 
-    <div id="end-game">
+    <div id="end-game" class="main-panel">
         <h1 id='message'>The game is over.<br>You have
             scored<br><span id='score'></span> points!</h1>
         <button id="start-new-game">Play again</button>
     </div>
 
+    <div class="score-results main-panel">
+        <div class="score-history">
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Points won</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
 
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>
