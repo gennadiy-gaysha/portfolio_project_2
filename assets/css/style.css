@@ -240,6 +240,10 @@ td {
     font-size: 120%;
 }
 
+.score-results {
+    display: none;
+}
+
 #scoring {
     padding-left: 20px;
 }

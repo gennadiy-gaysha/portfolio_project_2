@@ -18,6 +18,11 @@ document.getElementById('back-button').addEventListener('click', function () {
     document.getElementById('game-rules').style.display = 'none';
 })
 
+document.getElementById('max-score').addEventListener('click', function () {
+    document.querySelector('.score-results').style.display = 'block';
+    document.getElementById('play-area').style.display = 'none';
+});
+
 document.getElementById('start').addEventListener('click', function () {
     const removePanel = document.getElementById('start-panel');
     const addPanel = document.getElementById('play-area');
@@ -281,6 +286,7 @@ function addScoreRight(event) {
     endGame();
 }
 
+
 function endGame() {
     if (leftScoreCount === 6 && rightScoreCount === 7) {
         yahtzeeSound.play();
@@ -288,33 +294,15 @@ function endGame() {
         document.getElementById('end-game').style.display = 'block';
         document.getElementById('score').innerHTML = `${document.getElementById('total').textContent}`
 
+        // save the object in the localStorage
         const scoreObject = addResult(document.getElementById('total').textContent);
-        const tableBody = document.querySelector("#resultsTable tbody");
-        // ==========================================================================================================
 
-        // Loop through the game results array and create a row for each game
-        scoreObject.results.forEach((game) => {
-            // Create a new row element
-            const row = document.createElement("tr");
+        localStorage.setItem("scoreObject", JSON.stringify(scoreObject));
 
-            // Create a date cell and add it to the row
-            const dateCell = document.createElement("td");
-            dateCell.textContent = new Date(game.date).toLocaleString();
-            row.appendChild(dateCell);
+        // retrieve the object from the localStorage
+        const storedObject = JSON.parse(localStorage.getItem("scoreObject"));
 
-            // Create a cell for each player's score and add them to the row
-
-            const scoreCell = document.createElement("td");
-            scoreCell.textContent = game.score;
-            row.appendChild(scoreCell);
-
-
-            // Add the row to the table body
-            tableBody.appendChild(row);
-            // ==========================================================================================================
-        });
-
-
+        console.log(storedObject);
     }
 }
 
@@ -540,13 +528,34 @@ const yahtzeeResults = {
 // Define a function to add new results to the object
 function addResult(score) {
     const result = {
-
         date: new Date(),
-        date2: new Date(),
+        time: new Date(),
         score: score
     };
 
-    yahtzeeResults.results.push(result);
+    yahtzeeResults.results.unshift(result);
+    yahtzeeResults.results.sort((a, b) => b.score - a.score); // sort the array in descending order based on score
+
+    // update the table with the sorted results
+    const tableBody = document.querySelector("#resultsTable tbody");
+    while (tableBody.firstChild) {
+        tableBody.removeChild(tableBody.firstChild);
+    }
+    yahtzeeResults.results.forEach((result) => {
+        const row = document.createElement("tr");
+        const dateCell = document.createElement("td");
+        dateCell.textContent = new Date(result.date).toLocaleDateString();
+        row.appendChild(dateCell);
+        const timeCell = document.createElement("td");
+        timeCell.textContent = new Date(result.date).toLocaleTimeString();
+        row.appendChild(timeCell);
+        const scoreCell = document.createElement("td");
+        scoreCell.textContent = result.score;
+        row.appendChild(scoreCell);
+        tableBody.appendChild(row);
+    });
 
     return yahtzeeResults;
 }
+
+// ===========================================================================
