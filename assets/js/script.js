@@ -4,18 +4,23 @@ function saveResultsToLocal() {
     localStorage.setItem('yahtzeeResults', JSON.stringify(yahtzeeResults));
 }
 
-function getResultsFromLocal() {
-    let results = localStorage.getItem('yahtzeeResults');
-    if (results) {
-        yahtzeeResults = JSON.parse(results);
-    }
-}
-//Starting the game by switching between start-panel and play-area panel
-// Create an empty object to store the results
 let yahtzeeResults = {
     results: []
 };
-getResultsFromLocal();
+
+if (localStorage.getItem('yahtzeeResults')) {
+    yahtzeeResults = JSON.parse(localStorage.getItem('yahtzeeResults'));
+}
+
+// add each result to the table
+yahtzeeResults.results.forEach((result) => {
+    addResultToTable(result);
+});
+
+
+//Starting the game by switching between start-panel and play-area panel
+
+
 
 let diceSound = new Audio('assets/js/dice-roll.mp3');
 let enterScoreSound = new Audio('assets/js/enter-score.mp3');
@@ -29,7 +34,7 @@ document.getElementById('rules-button').addEventListener('click', function () {
 
 })
 
-document.getElementById('back-button').addEventListener('click', function () {
+document.querySelector('.back-button').addEventListener('click', function () {
     document.getElementById('play-area').style.display = 'block';
     document.getElementById('game-rules').style.display = 'none';
 })
@@ -38,6 +43,11 @@ document.getElementById('max-score').addEventListener('click', function () {
     document.querySelector('.score-results').style.display = 'block';
     document.getElementById('play-area').style.display = 'none';
 });
+
+document.querySelector('.button-position').addEventListener('click', function () {
+    document.querySelector('.score-results').style.display = 'none'
+    document.getElementById('play-area').style.display = 'block';
+})
 
 document.getElementById('start').addEventListener('click', function () {
     const removePanel = document.getElementById('start-panel');
@@ -311,7 +321,7 @@ function endGame() {
         document.getElementById('score').innerHTML = `${document.getElementById('total').textContent}`
 
         // save the object in the localStorage
-        const scoreObject = addResult(document.getElementById('total').textContent);
+        addResult(document.getElementById('total').textContent);
     }
 }
 
@@ -526,11 +536,8 @@ function deleteCurrentScore() {
     }
 };
 
-// ===============================================================================
 //Max Score
-// ===============================================================================
-//line 291
-// Define a function to add new results to the object
+//Define a function to add new results to the object
 function addResult(score) {
     const result = {
         date: new Date(),
@@ -538,13 +545,16 @@ function addResult(score) {
         score: score
     };
 
-    yahtzeeResults.results.unshift(result);
+    yahtzeeResults.results.push(result);
     yahtzeeResults.results.sort((a, b) => b.score - a.score); // sort the array in descending order based on score
+    if (yahtzeeResults.results.length > 15) {
+        yahtzeeResults.results.pop(); // keep only the top 15 results
+    }
 
     // Save the updated yahtzeeResults object to localStorage
     saveResultsToLocal();
 
-    // update the table with the sorted results
+    //Update the table with the sorted results
     const tableBody = document.querySelector("#resultsTable tbody");
     while (tableBody.firstChild) {
         tableBody.removeChild(tableBody.firstChild);
@@ -566,4 +576,19 @@ function addResult(score) {
     return yahtzeeResults;
 }
 
-// ===========================================================================
+// Adds a single result to the table. This function is called from both
+//addResult and the initial loading of results from localStorage.
+function addResultToTable(result) {
+    const tableBody = document.querySelector("#resultsTable tbody");
+    const row = document.createElement("tr");
+    const dateCell = document.createElement("td");
+    dateCell.textContent = new Date(result.date).toLocaleDateString();
+    row.appendChild(dateCell);
+    const timeCell = document.createElement("td");
+    timeCell.textContent = new Date(result.date).toLocaleTimeString();
+    row.appendChild(timeCell);
+    const scoreCell = document.createElement("td");
+    scoreCell.textContent = result.score;
+    row.appendChild(scoreCell);
+    tableBody.appendChild(row);
+}

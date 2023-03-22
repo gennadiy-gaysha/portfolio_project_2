@@ -145,7 +145,7 @@ h1 {
 .score-history {
     font-size: 1.1rem;
     padding: 20px;
-    margin: 30px auto;
+    margin: 25px auto;
     width: 65%;
     background: rgb(190, 190, 190);
     height: 200px;
@@ -157,7 +157,7 @@ h1 {
 
 .score-history {
     margin-top: 40px;
-    height: 475px;
+    height: 450px;
 }
 
 table {
@@ -228,17 +228,14 @@ td {
 }
 
 #game-rules {
-    margin: 50px auto;
-    background: blue;
-    border: #624afe 20px solid;
-    width: 67%;
-    height: 600px;
     display: none;
     line-height: 155%;
     padding: 30px;
     overflow-y: scroll;
     font-size: 120%;
 }
+
+
 
 .score-results {
     display: none;
@@ -248,7 +245,7 @@ td {
     padding-left: 20px;
 }
 
-#back-button {
+.back-button {
     width: 150px;
     height: 25px;
     border: 2px solid #333;
@@ -265,7 +262,14 @@ td {
     cursor: pointer;
 }
 
-#back-button:active {
+.button-position {
+    float: none;
+    margin: 10px;
+    padding: 6px 5px 0;
+    margin: 0 auto;
+}
+
+.back-button:active {
     box-shadow: 3px 3px 0 rgb(14, 14, 14);
     transform: translate(0, 3px);
 }
