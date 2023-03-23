@@ -15,11 +15,17 @@
 </head>
 
 <body>
+
+    <!-- Starting panel -->
     <div id="start-panel" class="main-panel">
         <h1>yahtzee</h1>
         <button id="start">Start game</button>
     </div>
+
+    <!-- Main playing panel -->
     <div id="play-area" class="main-panel">
+
+        <!-- Rolling Dice area -->
         <div class="dice-container">
             <div class="dice">
                 <img src="assets/img/red.png" alt="" class="red">
@@ -43,6 +49,7 @@
             <div id="roll--dice">Roll dice</div>
         </div>
 
+        <!-- Current score area -->
         <div class="score-container">
             <table>
                 <tbody>
@@ -119,14 +126,22 @@
             </table>
         </div>
 
+        <!-- Three functional buttons below the Current score area -->
         <div class="info">
             <div id='rules-button' class="element">Game rules</div>
             <div id="restart" class="element">Restart game</div>
             <div id="max-score" class="element">Max score</div>
         </div>
-
     </div>
 
+    <!-- End of the Game panel -->
+    <div id="end-game" class="main-panel">
+        <h1 id='message'>The game is over.<br>You have
+            scored<br><span id='score'></span> points!</h1>
+        <button id="start-new-game">Play again</button>
+    </div>
+
+    <!-- Game rules panel -->
     <div id="game-rules" class="main-panel">
         <p>Yahtzee is a popular dice game that is played with five standard six-sided dice. The game consists of a
             series of rounds, and each round involves rolling the dice up to three times in an attempt to get certain
@@ -175,12 +190,7 @@
         <div class="back-button">Back to play</div>
     </div>
 
-    <div id="end-game" class="main-panel">
-        <h1 id='message'>The game is over.<br>You have
-            scored<br><span id='score'></span> points!</h1>
-        <button id="start-new-game">Play again</button>
-    </div>
-
+    <!-- Max score panel -->
     <div class="score-results main-panel">
         <div class="score-history">
             <table id="resultsTable">
