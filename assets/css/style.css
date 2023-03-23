@@ -24,6 +24,7 @@ body {
     border: #624afe 20px solid;
     width: 67%;
     height: 600px;
+    font-size: 16px;
 }
 
 /* Starting Panel */
@@ -48,7 +49,7 @@ body {
 h1 {
     padding-top: 150px;
     text-align: center;
-    font-size: 11em;
+    font-size: 6.5em;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
@@ -194,7 +195,7 @@ td {
     align-items: center;
     box-shadow:
         3px 6px 0 rgb(14, 14, 14);
-    font-size: 80%;
+    font-size: 0.65em;
     text-align: center;
     color: #222;
     cursor: pointer;
@@ -232,11 +233,15 @@ td {
     line-height: 155%;
     padding: 30px;
     overflow-y: scroll;
-    font-size: 120%;
+    /* font-size: 120%; */
 }
 
 #scoring {
     padding-left: 20px;
+}
+
+.text-content {
+    font-size: 0.8em;
 }
 
 /* Max score Panel */
@@ -256,7 +261,7 @@ td {
 
 /* Buttons for  Game rules and Max score Panels */
 .back-button {
-    width: 150px;
+    width: 160px;
     height: 25px;
     border: 2px solid #333;
     margin: 0 20px;
@@ -264,11 +269,11 @@ td {
     background-color: rgb(235, 34, 148);
     box-shadow:
         3px 6px 0 rgb(14, 14, 14);
-    font-size: 80%;
+    font-size: 0.65em;
     text-align: center;
     color: #222;
     margin-top: 5px;
-    padding: 2.5px 0;
+    /* padding: 2.5px 0; */
     cursor: pointer;
 }
 
@@ -282,4 +287,116 @@ td {
 .back-button:active {
     box-shadow: 3px 3px 0 rgb(14, 14, 14);
     transform: translate(0, 3px);
+}
+
+
+/* MEDIA QUERIES */
+/* 320px: This is the width of an iPhone in portrait mode.
+480px: This is the width of an iPhone in landscape mode.
+768px: This is the width of an iPad in portrait mode.
+992px: This is the width of a small laptop or tablet in landscape mode.
+1200px: This is the width of a larger desktop computer in landscape mode. */
+
+@media screen and (max-width: 1500px) {
+    h1 {
+        font-size: 6em;
+    }
+
+    .dice-container {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    h1 {
+        font-size: 5.5em;
+    }
+
+    .dice-container {
+        width: 90%;
+    }
+
+    #roll--dice {
+        width: 90px;
+        height: 90px;
+    }
+
+    .dice,
+    .dice-image {
+        width: 90px;
+        height: 90px;
+    }
+
+    .dice img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .score-container {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    h1 {
+        font-size: 5em;
+    }
+
+    #roll--dice {
+        width: 78px;
+        height: 78px;
+        font-size: 16px;
+    }
+
+    .dice,
+    .dice-image {
+        width: 78px;
+        height: 78px;
+    }
+
+    .dice img {
+        width: 78px;
+        height: 78px;
+    }
+
+    .score-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    h1 {
+        font-size: 4.5em;
+    }
+
+    #roll--dice {
+        width: 70px;
+        height: 70px;
+        font-size: 14px;
+    }
+
+    .dice,
+    .dice-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .dice img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .score-container {
+        width: 85%;
+    }
+
+    .element {
+        margin: 0 20px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #roll-dice {
+        display: block;
+    }
 }

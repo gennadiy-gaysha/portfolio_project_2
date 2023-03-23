@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/img/dices.png">
+    <title>YAHTZEE</title>
+</head>
+
+
+<body>
     <audio src="assets/js/dice-roll.mp3" preload="auto"></audio>
     <audio src="assets/js/enter-score.mp3" preload="auto"></audio>
     <audio src="assets/js/yahtzee.mp3" preload="auto"></audio>
     <audio src="assets/js/yahtzee_50.mp3" preload="auto"></audio>
     <audio src="assets/js/bonus.mp3" preload="auto"></audio>
-    <title>YAHTZEE</title>
-</head>
-
-<body>
 
     <!-- Starting panel -->
     <div id="start-panel" class="main-panel">
@@ -121,6 +123,7 @@
                         <td id="fixed-chance-score" class="hidden fixed-score">0</td>
                         <td id='rules'></td>
                         <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
@@ -143,50 +146,59 @@
 
     <!-- Game rules panel -->
     <div id="game-rules" class="main-panel">
-        <p>Yahtzee is a popular dice game that is played with five standard six-sided dice. The game consists of a
-            series of rounds, and each round involves rolling the dice up to three times in an attempt to get certain
-            combinations of dice faces.</p>
-        <br>
-        <h2>Basic rules of Yahtzee:</h2>
-        <br>
-        <ul>
-            <li>At the beginning of each round, the player rolls all five dice.</li>
-            <li>After the first roll, the player can choose to keep any number of dice and re-roll the rest. The player
-                can do this up to two more times.</li>
-            <li>Once the player has finished rolling the dice, they must choose a category to score. There are 13
-                categories, each with different requirements:
-                <ul id="scoring">
+        <div class="text-content">
+            <p>Yahtzee is a popular dice game that is played with five standard six-sided dice. The game consists of a
+                series of rounds, and each round involves rolling the dice up to three times in an attempt to get
+                certain
+                combinations of dice faces.</p>
+            <br>
+            <h2>Basic rules of Yahtzee:</h2>
+            <br>
+            <ul>
+                <li>At the beginning of each round, the player rolls all five dice.</li>
+                <li>After the first roll, the player can choose to keep any number of dice and re-roll the rest. The
+                    player
+                    can do this up to two more times.</li>
+                <li>Once the player has finished rolling the dice, they must choose a category to score. There are 13
+                    categories, each with different requirements:
+                    <ul id="scoring">
+                        <li>Ones: Score the total of all dice showing the number 1.</li>
+                        <li>Twos: Score the total of all dice showing the number 2.</li>
+                        <li>Threes: Score the total of all dice showing the number 3.</li>
+                        <li>Fours: Score the total of all dice showing the number 4.</li>
+                        <li>Fives: Score the total of all dice showing the number 5.</li>
+                        <li>Sixes: Score the total of all dice showing the number 6.</li>
+                        <li>Bonus: The Left section is the first six rows - ones, twos, threes, fours, fives and sixes.
+                            If
+                            the sum of your score in the Left</li>
+                        <li>section is greater than or equal to 63, you automatically get 35 bonus points.</li>
+                        <li>Three of a kind: Score the total of all dice if there are at least three of the same number.
+                        </li>
+                        <li>Four of a kind: Score the total of all dice if there are at least four of the same number.
+                        </li>
+                        <li>Full house: Score 25 points if there are three of one number and two of another.</li>
+                        <li>Small straight: Score 30 points if there are four sequential numbers.</li>
+                        <li>Large straight: Score 40 points if there are five sequential numbers.</li>
+                        <li>Yahtzee: Score 50 points if all five dice show the same number.</li>
+                        <li>Chance: Score the total of all dice, regardless of the numbers.</li>
+                    </ul>
                     <br>
-                    <li>Ones: Score the total of all dice showing the number 1.</li>
-                    <li>Twos: Score the total of all dice showing the number 2.</li>
-                    <li>Threes: Score the total of all dice showing the number 3.</li>
-                    <li>Fours: Score the total of all dice showing the number 4.</li>
-                    <li>Fives: Score the total of all dice showing the number 5.</li>
-                    <li>Sixes: Score the total of all dice showing the number 6.</li>
-                    <li>Bonus: The Left section is the first six rows - ones, twos, threes, fours, fives and sixes. If
-                        the sum of your score in the Left</li>
-                    <li>section is greater than or equal to 63, you automatically get 35 bonus points.</li>
-                    <li>Three of a kind: Score the total of all dice if there are at least three of the same number.
-                    </li>
-                    <li>Four of a kind: Score the total of all dice if there are at least four of the same number.</li>
-                    <li>Full house: Score 25 points if there are three of one number and two of another.</li>
-                    <li>Small straight: Score 30 points if there are four sequential numbers.</li>
-                    <li>Large straight: Score 40 points if there are five sequential numbers.</li>
-                    <li>Yahtzee: Score 50 points if all five dice show the same number.</li>
-                    <li>Chance: Score the total of all dice, regardless of the numbers.</li>
-                </ul>
-                <br>
-            </li>
-            <li>Once the player has chosen a category to score, they cannot choose that category again for the rest of
-                the game.</li>
-            <li>The game continues for 13 rounds, after which the player with the highest total score wins.</li>
-        </ul>
-        <br>
-        <p>These are the basic rules of Yahtzee, but there are many variations and additional rules that can be added to
-            make the game more interesting or challenging.</p><br>
-        <p>Useful tip 1: If you are not satisfied with your current result, you can restart the game by clicking on the
-            "Restart game" button below the score panel after you have entered your current points.</p><br>
-        <p>Useful tip 2: To roll the dice, you may also click on the "Enter" or "Spacebar" button on your keyboard.</p>
+                </li>
+                <li>Once the player has chosen a category to score, they cannot choose that category again for the rest
+                    of
+                    the game.</li>
+                <li>The game continues for 13 rounds, after which the player with the highest total score wins.</li>
+            </ul>
+            <br>
+            <p>These are the basic rules of Yahtzee, but there are many variations and additional rules that can be
+                added to
+                make the game more interesting or challenging.</p><br>
+            <p>Useful tip 1: If you are not satisfied with your current result, you can restart the game by clicking on
+                the
+                "Restart game" button below the score panel after you have entered your current points.</p><br>
+            <p>Useful tip 2: To roll the dice, you may also click on the "Enter" or "Spacebar" button on your keyboard.
+            </p>
+        </div>
         <div class="back-button">Back to play</div>
     </div>
 
