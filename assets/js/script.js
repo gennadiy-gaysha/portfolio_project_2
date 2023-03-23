@@ -540,9 +540,10 @@ function deleteCurrentScore() {
 //Define a function to add new results to the object
 function addResult(score) {
     const result = {
+        score: score,
         date: new Date(),
         time: new Date(),
-        score: score
+
     };
 
     yahtzeeResults.results.push(result);
@@ -559,18 +560,8 @@ function addResult(score) {
     while (tableBody.firstChild) {
         tableBody.removeChild(tableBody.firstChild);
     }
-    yahtzeeResults.results.forEach((result) => {
-        const row = document.createElement("tr");
-        const dateCell = document.createElement("td");
-        dateCell.textContent = new Date(result.date).toLocaleDateString();
-        row.appendChild(dateCell);
-        const timeCell = document.createElement("td");
-        timeCell.textContent = new Date(result.date).toLocaleTimeString();
-        row.appendChild(timeCell);
-        const scoreCell = document.createElement("td");
-        scoreCell.textContent = result.score;
-        row.appendChild(scoreCell);
-        tableBody.appendChild(row);
+    yahtzeeResults.results.forEach((result, index) => {
+        addResultToTable(result, index);
     });
 
     return yahtzeeResults;
@@ -578,9 +569,19 @@ function addResult(score) {
 
 // Adds a single result to the table. This function is called from both
 //addResult and the initial loading of results from localStorage.
-function addResultToTable(result) {
+function addResultToTable(result, index) {
     const tableBody = document.querySelector("#resultsTable tbody");
     const row = document.createElement("tr");
+
+    // Check if the index is a valid number
+    if (typeof index !== "number" || isNaN(index) || index < 0 || index >= yahtzeeResults.results.length) {
+        // If the index is not valid, set it to the correct value based on the position of the result in the array
+        index = yahtzeeResults.results.indexOf(result);
+    }
+
+    const scoreNumCell = document.createElement("td");
+    scoreNumCell.textContent = index + 1; // display the sequential score number
+    row.appendChild(scoreNumCell);
     const dateCell = document.createElement("td");
     dateCell.textContent = new Date(result.date).toLocaleDateString();
     row.appendChild(dateCell);

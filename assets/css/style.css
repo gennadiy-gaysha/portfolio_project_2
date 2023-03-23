@@ -273,3 +273,13 @@ td {
     box-shadow: 3px 3px 0 rgb(14, 14, 14);
     transform: translate(0, 3px);
 }
+
+#resultsTable th {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#resultsTable td {
+    text-align: center;
+    padding-bottom: 1px;
+}
