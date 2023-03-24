@@ -143,6 +143,12 @@ h1 {
     font-size: 0.8em;
 }
 
+#throws span {
+    background-color: cornsilk;
+    color: green;
+    padding: 5px;
+}
+
 /* Currentscore area + Max score Panel */
 .score-container,
 .score-history {
@@ -468,6 +474,23 @@ td {
         width: 85%;
     }
 }
+
+@media screen and (max-width: 920px) {
+    .mobile {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    h1 {
+        padding-top: 95px;
+    }
+
+    #end-game h1 {
+        font-size: 1.9em;
+        padding-top: 52px;
+    }
+}
+
 
 @media screen and (max-width: 850px) {
     .main-panel {

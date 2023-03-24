@@ -164,8 +164,10 @@ function rollDice() {
     counter -= 1;
     const throwElement = document.getElementById('throws');
 
-    if (counter > 0) {
-        throwElement.innerHTML = `You have ${counter} throws left. Good luck!`;
+    if (counter > 1) {
+        throwElement.innerHTML = `You have <span>${counter}</span> throws left. Good luck!`;
+    } else if (counter === 1) {
+        throwElement.innerHTML = `You have <span>${counter}</span> throw left. Good luck!`;
     }
     //Adding this statement here prevents from changing dice color just after the third throw
     else if (counter === 0) {
@@ -372,7 +374,7 @@ function startNewGame() {
 document.getElementById('restart').addEventListener('click', startNewGame);
 
 //Initial textContent for element with id='throws':
-document.getElementById('throws').textContent = `You have 3 throws left. Good luck!`;
+document.getElementById('throws').innerHTML = `You have <span>3</span> throws left. Good luck!`;
 // ======================================================================
 /** 
  *  Removes the red cap and make the dices visible
@@ -495,7 +497,7 @@ function displayCurrentScore() {
  */
 
 function enterScore() {
-    document.getElementById('throws').innerHTML = `You have 3 throws left. Good luck!`;
+    document.getElementById('throws').innerHTML = `You have <span>3</span> throws left. Good luck!`;
     counter = 3;
 }
 
