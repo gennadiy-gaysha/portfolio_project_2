@@ -80,6 +80,7 @@ h1 {
 /* Rolling dice area */
 .dice-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 30px auto;
@@ -135,6 +136,11 @@ h1 {
 #roll--dice:active {
     box-shadow: 5px 5px 0 rgb(14, 14, 14);
     transform: translate(0, 5px);
+}
+
+#throws {
+    color: cornsilk;
+    font-size: 0.8em;
 }
 
 /* Currentscore area + Max score Panel */
@@ -473,6 +479,10 @@ td {
         width: 125px;
         font-size: 0.5em;
     }
+
+    .text-content {
+        font-size: 0.7em;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -492,7 +502,7 @@ td {
         width: 50px;
         height: 50px;
         font-size: 14px;
-        width: 160px;
+        width: 165px;
         height: 25px;
         border: 2px solid #333;
         margin: 0 20px;

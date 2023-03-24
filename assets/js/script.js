@@ -127,7 +127,6 @@ function rollDice() {
         diceSound.volume = 0.2;
         diceSound.play();
 
-
         const diceImages = document.getElementsByClassName('unhold-dice');
         for (let diceImage of diceImages) {
             let diceNumber = Math.floor(Math.random() * 6 + 1);
@@ -161,9 +160,16 @@ function rollDice() {
     } else {
         alert('Please, choose the line to enter your current score');
     }
+
     counter -= 1;
+    const throwElement = document.getElementById('throws');
+
+    if (counter > 0) {
+        throwElement.innerHTML = `You have ${counter} throws left. Good luck!`;
+    }
     //Adding this statement here prevents from changing dice color just after the third throw
-    if (counter === 0) {
+    else if (counter === 0) {
+        throwElement.innerHTML = `<p>Please, write down your current score</p>`
         const dices = document.getElementsByClassName('dice');
         for (let dice of dices) {
             dice.removeEventListener('click', holdButtonColor)
@@ -365,6 +371,8 @@ function startNewGame() {
 
 document.getElementById('restart').addEventListener('click', startNewGame);
 
+//Initial textContent for element with id='throws':
+document.getElementById('throws').textContent = `You have 3 throws left. Good luck!`;
 // ======================================================================
 /** 
  *  Removes the red cap and make the dices visible
@@ -487,6 +495,7 @@ function displayCurrentScore() {
  */
 
 function enterScore() {
+    document.getElementById('throws').innerHTML = `You have 3 throws left. Good luck!`;
     counter = 3;
 }
 
