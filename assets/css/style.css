@@ -47,7 +47,7 @@ body {
 }
 
 h1 {
-    padding-top: 150px;
+    padding-top: 160px;
     text-align: center;
     font-size: 6.5em;
     text-transform: uppercase;
@@ -300,6 +300,7 @@ td {
 @media screen and (max-width: 1500px) {
     h1 {
         font-size: 6em;
+        padding-top: 180px;
     }
 
     .dice-container {
@@ -340,6 +341,7 @@ td {
 @media screen and (max-width: 1200px) {
     h1 {
         font-size: 5em;
+        padding-top: 200px;
     }
 
     #roll--dice {
@@ -396,7 +398,72 @@ td {
 }
 
 @media screen and (max-width: 992px) {
-    #roll-dice {
-        display: block;
+    h1 {
+        font-size: 4em;
+    }
+
+    .dice-container {
+        flex-wrap: wrap;
+    }
+
+    #roll--dice {
+        width: 160px;
+        height: 25px;
+        border: 2px solid #333;
+        margin: 0 20px 5px;
+        background-color: rgb(160, 160, 160);
+        box-shadow:
+            3px 6px 0 rgb(14, 14, 14);
+        font-size: 0.65em;
+        text-align: center;
+        color: #222;
+        margin-top: 5px;
+        /* padding: 2.5px 0; */
+        cursor: pointer;
+    }
+
+    table td {
+        font-size: 0.7em;
     }
 }
+
+@media screen and (max-width: 850px) {
+    #roll--dice {
+        width: 60px;
+        height: 60px;
+        font-size: 14px;
+        width: 160px;
+        height: 25px;
+        border: 2px solid #333;
+        margin: 0 20px;
+        background-color: rgb(160, 160, 160);
+        box-shadow:
+            3px 6px 0 rgb(14, 14, 14);
+        font-size: 0.65em;
+        text-align: center;
+        color: #222;
+        margin-top: 5px;
+        /* padding: 2.5px 0; */
+        cursor: pointer;
+    }
+
+    .dice,
+    .dice-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .dice img {
+        width: 60px;
+        height: 60px;
+    }
+
+
+    .element {
+        margin: 0 10px;
+        width: 125px;
+        font-size: 0.5em;
+    }
+}
+
+@media screen and (max-width: 768px) {}
