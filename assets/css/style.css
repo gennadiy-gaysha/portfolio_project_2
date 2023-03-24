@@ -166,7 +166,6 @@ td {
 }
 
 .current-score {
-    padding: 0 5px;
     text-align: center;
     cursor: pointer;
     width: 55px;
@@ -176,10 +175,6 @@ td {
     padding: 0 5px;
     text-align: center;
     width: 55px;
-}
-
-.left-current-score {
-    padding: 0 30px;
 }
 
 .fixed-score {
@@ -463,6 +458,7 @@ td {
 
 @media screen and (max-width: 992px) {
     .main-panel {
+        margin-top: 0;
         width: 85%;
     }
 }
