@@ -402,32 +402,12 @@ td {
 }
 
 @media screen and (max-width: 992px) {
+    .main-panel {
+        width: 80%;
+    }
+
     #start {
         padding: 15px;
-    }
-
-    h1 {
-        font-size: 4em;
-    }
-
-    .dice-container {
-        flex-wrap: wrap;
-    }
-
-    #roll--dice {
-        width: 160px;
-        height: 25px;
-        border: 2px solid #333;
-        margin: 0 20px 5px;
-        background-color: rgb(160, 160, 160);
-        box-shadow:
-            3px 6px 0 rgb(14, 14, 14);
-        font-size: 0.65em;
-        text-align: center;
-        color: #222;
-        margin-top: 5px;
-        /* padding: 2.5px 0; */
-        cursor: pointer;
     }
 
     table td {
@@ -436,44 +416,13 @@ td {
 }
 
 @media screen and (max-width: 850px) {
+    .main-panel {
+        width: 90%;
+    }
+
     #start {
         padding: 13px;
     }
-
-    h1 {
-        font-size: 3.5em;
-    }
-
-    #roll--dice {
-        width: 60px;
-        height: 60px;
-        font-size: 14px;
-        width: 160px;
-        height: 25px;
-        border: 2px solid #333;
-        margin: 0 20px;
-        background-color: rgb(160, 160, 160);
-        box-shadow:
-            3px 6px 0 rgb(14, 14, 14);
-        font-size: 0.65em;
-        text-align: center;
-        color: #222;
-        margin-top: 5px;
-        /* padding: 2.5px 0; */
-        cursor: pointer;
-    }
-
-    .dice,
-    .dice-image {
-        width: 60px;
-        height: 60px;
-    }
-
-    .dice img {
-        width: 60px;
-        height: 60px;
-    }
-
 
     .element {
         margin: 0 10px;
@@ -483,13 +432,21 @@ td {
 }
 
 @media screen and (max-width: 768px) {
+    .main-panel {
+        width: 95%;
+    }
+
     #start {
         font-size: 70%;
         padding: 10px;
     }
 
     h1 {
-        font-size: 2.8em;
+        font-size: 4.2em;
+    }
+
+    .dice-container {
+        flex-wrap: wrap;
     }
 
     #roll--dice {
@@ -512,19 +469,19 @@ td {
     }
 
     .dice {
-        margin: 0 5px;
+        margin: 0 10px;
         ;
     }
 
     .dice,
     .dice-image {
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
     }
 
     .dice img {
-        width: 50px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
     }
 
     .element {
