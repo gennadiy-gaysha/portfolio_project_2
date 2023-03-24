@@ -30,14 +30,32 @@ body {
 /* Starting Panel */
 #start,
 #start-new-game {
+    width: 200px;
+    height: 50px;
+    border: 2px solid #333;
+    margin: 50px auto;
+    padding: 17px;
+    /* margin: 0 30px; */
+    /* display: flex; */
+    background-color: rgb(183, 183, 183);
+    /* justify-content: center;
+    align-items: center; */
     box-shadow:
+        5px 10px 0 rgb(14, 14, 14);
+    /* font-size: 0.65em; */
+    text-align: center;
+    color: #222;
+    cursor: pointer;
+
+
+    /* box-shadow:
         5px 10px 0 rgb(14, 14, 14);
     font-family: 'Press Start 2P', sans-serif;
     text-align: center;
     display: block;
     margin: 50px auto;
-    padding: 20px;
-    cursor: pointer;
+    padding: 20px; */
+    /* cursor: pointer; */
 }
 
 #start:active,
@@ -125,7 +143,7 @@ h1 {
     font-size: 1.1rem;
     padding: 20px;
     margin: 25px auto;
-    width: 65%;
+    width: 75%;
     background: rgb(190, 190, 190);
     height: 200px;
     color: black;
@@ -151,11 +169,17 @@ td {
     padding: 0 5px;
     text-align: center;
     cursor: pointer;
+    width: 55px;
 }
 
 .score {
     padding: 0 5px;
     text-align: center;
+    width: 55px;
+}
+
+.left-current-score {
+    padding: 0 30px;
 }
 
 .fixed-score {
@@ -172,6 +196,10 @@ td {
 .hidden {
     display: none;
 }
+
+/* td {
+    width: 100px;
+} */
 
 /* 3 function buttons area*/
 .info {
@@ -218,7 +246,7 @@ td {
     letter-spacing: 0.1em;
     text-align: center;
     line-height: 175%;
-    font-size: 400%;
+    font-size: 2.6em;
 }
 
 #end-game h1 span {
@@ -289,13 +317,31 @@ td {
     transform: translate(0, 3px);
 }
 
+/* Block portrait div */
+
+#block-portrait {
+    display: none;
+    color: yellow;
+    background-color: #151311;
+    font-size: 1.3em;
+    padding: 200px 20px 20px;
+    line-height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#block-portrait span {
+    color: rgb(0, 182, 0);
+}
+
 
 /* MEDIA QUERIES */
-/* 320px: This is the width of an iPhone in portrait mode.
-480px: This is the width of an iPhone in landscape mode.
-768px: This is the width of an iPad in portrait mode.
-992px: This is the width of a small laptop or tablet in landscape mode.
-1200px: This is the width of a larger desktop computer in landscape mode. */
 
 @media screen and (max-width: 1500px) {
     h1 {
@@ -336,6 +382,11 @@ td {
     .score-container {
         width: 75%;
     }
+
+    #end-game h1 {
+        font-size: 2.3em;
+        padding-top: 140px;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -364,9 +415,18 @@ td {
     .score-container {
         width: 80%;
     }
+
+    #end-game h1 {
+        font-size: 1.9em;
+        padding-top: 150px;
+    }
 }
 
 @media screen and (max-width: 1100px) {
+    .main-panel {
+        width: 72%;
+    }
+
     #start {
         padding: 17px;
     }
@@ -403,25 +463,13 @@ td {
 
 @media screen and (max-width: 992px) {
     .main-panel {
-        width: 80%;
-    }
-
-    #start {
-        padding: 15px;
-    }
-
-    table td {
-        font-size: 0.7em;
+        width: 85%;
     }
 }
 
 @media screen and (max-width: 850px) {
     .main-panel {
         width: 90%;
-    }
-
-    #start {
-        padding: 13px;
     }
 
     .element {
@@ -433,12 +481,7 @@ td {
 
 @media screen and (max-width: 768px) {
     .main-panel {
-        width: 95%;
-    }
-
-    #start {
-        font-size: 70%;
-        padding: 10px;
+        width: 100%;
     }
 
     h1 {
@@ -492,5 +535,20 @@ td {
 
     .score-container {
         width: 90%;
+    }
+
+    .score-history {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+
+    #block-portrait {
+        display: block;
+    }
+
+    .main-panel {
+        display: none;
     }
 }
