@@ -475,7 +475,7 @@ td {
     }
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 920px) and (max-height: 920px) {
     .mobile {
         width: 100vw;
         height: 100vh;
