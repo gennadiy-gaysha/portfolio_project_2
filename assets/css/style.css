@@ -331,7 +331,6 @@ td {
     color: yellow;
     background-color: #151311;
     font-size: 1.3em;
-    padding: 200px 20px 20px;
     line-height: 40px;
     position: absolute;
     top: 0;
@@ -575,6 +574,7 @@ td {
 
     #block-portrait {
         display: block;
+        padding: 150px 20px 20px;
     }
 
     .main-panel {
