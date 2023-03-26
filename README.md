@@ -1,12 +1,38 @@
-# Zahtzee
+# Yahtzee
 
-![RPSLS mockup images](assets/readme-files/mockup-image.png)
+![RPSLS mockup images](assets/img/responsiveness.png)
 
-Rock Paper Scissors Lizard Spock (RPSLS) is an extension of the classic game of chance, Rock Paper Scissors, created by Sam Kass and Karen Bryla. This variant was mentioned in a 2005 article in *The Times* of London and was later the subject of an episode of the American sitcom *The Big Bang Theory* in 2008.
+Yahtzee is a popular dice game that is played with five standard six-sided dice. The game consists of a
+series of rounds, and each round involves rolling the dice up to three times in an attempt to get certain
+combinations of dice faces.
 
-This website is created to have fun playing this game against the computer. The game is entirely based on chance and the website is easy to navigate in order to easily find the rules, the game area and the feedback form in case the user wants to leave any comments.
+## Basic rules of Yahtzee:
 
-Visit the deployed website [here](https://josswe26.github.io/rpsls/).
+- At the beginning of each round, the player rolls all five dice.
+- After the first roll, the player can choose to keep any number of dice and re-roll the rest. The player can do this up to two more times.
+- Once the player has finished rolling the dice, they must choose a category to score. There are 13 categories, each with different requirements:
+    - Ones: Score the total of all dice showing the number 1.
+    - Twos: Score the total of all dice showing the number 2.
+    - Threes: Score the total of all dice showing the number 3.
+    - Fours: Score the total of all dice showing the number 4.
+    - Fives: Score the total of all dice showing the number 5.
+    - Sixes: Score the total of all dice showing the number 6.
+    - Bonus: The Left section is the first six rows - ones, twos, threes, fours, fives and sixes. If the sum of your score in the Left
+section is greater than or equal to 63, you automatically get 35 bonus points.
+    - Three of a kind: Score the total of all dice if there are at least three of the same number.
+    - Four of a kind: Score the total of all dice if there are at least four of the same number.
+    - Full house: Score 25 points if there are three of one number and two of another.
+    - Small straight: Score 30 points if there are four sequential numbers.
+    - Large straight: Score 40 points if there are five sequential numbers.
+    - Yahtzee: Score 50 points if all five dice show the same number.
+    - Chance: Score the total of all dice, regardless of the numbers.
+
+Once the player has chosen a category to score, they cannot choose that category again for the rest of the game.
+The game continues for 13 rounds, after which the player with the highest total score wins.
+
+These are the basic rules of Yahtzee, but there are many variations and additional rules that can be added to make the game more interesting or challenging.
+
+Visit the deployed website [here](https://gennadiy-gaysha.github.io/portfolio_project_2/).
 
 ## Table of Contents
 
@@ -47,154 +73,160 @@ Visit the deployed website [here](https://josswe26.github.io/rpsls/).
 
 ### Project Goals
 
-* The website provides a structure easy to understand and navigate.
+* The website should offer a layout that is straightforward to comprehend and traverse.
 
-* Contains fun colors and interactivity to engage the player in the game play.
+* The website should contain complementary colors that interactivity to engage the player in the game play.
 
-* Responsive design to make the game accessible on different devices.
+* Responsive design should make the game accessible on different devices.
 
-* Incorporates a rules section that is easily accessible to the player.
+* The website should comprise rule section that is easily accessible to the player..
 
-* A feedback section is provided to get comments from the player in order to further develop the website.
+* It should also include a maximum score table with the history of the maximum scores gained.
+
+* The game should contain sound effects that create an immersive gaming atmosphere.
 
 ### User Stories
 
-* As a player, I want the game's website to be easy to navigate.
 
-* As a player, I want the game to be fun and engaging.
 
-* As a player, I want to have easy access to the game rules.
 
-* As a player, I want the game controls to be easy to access during the game.
 
-* As a player, I want to receive overall feedback during and after the game.
 
-* As a player, I want to be able to play the game on different devices.
+
+
+
+* As a player, I want that the game's website is simple to explore and use.
+
+* As a player, I wish for the game to be entertaining and captivating.
+
+* As a player, I would like to have effortless availability to the game rules.
+
+* As a player, I expect the game controls to be readily accessible while playing.
+
+* As a player, I wish the ability to retain my gained score history.
+
+* As a player, I would like to play the game on various devices.
+
+* As a player, I want to experience lifelike sound effects.
 
 ### Color Scheme
 
-![Color scheme image](assets/readme-files/color-scheme.png)
+![Color scheme image](assets/img/color-scheme.png)
 
-The colors used in the site are white (#ffffff) for the navigation bar, slides background and some hover effects, a tone of orange (#bf834a) for closing buttons and buttons' hover effect, a tone of green (#789053) for the background and buttons, a blue color (#344b99) and a dark color (#151311) for the text.
-
-The colors scheme is inspired on the game's main image. This way each color represents the 5 different weapons (rock, paper, scissors, lizard and Spock) used in the game.
+The website used a variety of colors. However, the colors that form the primary palette are as follows (from left to right):
+- #ededed and #222222  - font colors
+- #0000ff - main-panel backgroud color
+- #624afe - border of main panel color
+- #a0a0a0 - roll dice button color
+- #008000 - dice area background color
+- #bebebe - score and score history background color
+- #eb2294 - auxiliary buttons background color
+- #ffff00 - hold dice background color
+- #ff0000 - dice cup color
 
 ### Typography
 
-The main font used in the site is Nunito, as suggested by Google Fonts for appropriate pairings with Odibee Sans, with Sans Serif as the fallback font in case Nunito is not being imported correctly. Odibee Sans is used for the headings and the logo for the gaming design it provides with Cursive as fallback.
+This site was diceded to realize in retro style of 1980s, i. e in the style of that time when computers designed for mass users were just beginning to appear. Therefore main font used in the site is Press Start 2P, with Sans Serif as the fallback font in case Press Start 2P is not being imported correctly. 
 
-### Wireframes
+### Mockup
 
-[Balsamiq](https://balsamiq.com/) has been used to showcase the appearance of the site and display the placement of the different elements whitin the pages.
+For this project it was decided to use simple and straightforward website design that wouldn't take much time to create. At the same time, I wanted to maximize the potential of JS to make the site interactive. That's why the decision was to write code for the Yahtzee game. I used the website design that it had when I first encountered the game more than 30 years ago. Below, is included two screenshots of that design that I found online. They were the basis for this site: Start panel image & Play area image.
 
-Page | Wireframe
---- | ---
-Home section | ![Home section wireframe image](assets/wireframes/home-section.png)
-Instructions section | ![Instructions wireframe image](assets/wireframes/instructions-section.png)
-Game section| ![Game section wireframe image](assets/wireframes/game-section.png)
-Feedback | ![Feedback wireframe image](assets/wireframes/feedback.png)
-Rules | ![Rules wireframe image](assets/wireframes/rules.png)
+<br>
 
-[Back to top ⇧](#rpsls)
+![Start panel image](assets/img/start-mockup.png)
+
+<br>
+
+![Play area image](assets/img/play-area-mockup.png)
+
 
 ## Features
 
 ### General
 
-* The website has been designed from a mobile first perspective.
+ - The website has been designed with a focus on the laptop user experience.
 
-* Responsive design across all device sizes.
+ - The website has a responsive design that works seamlessly across all screen sizes and device types.
 
-* **Header**
-![Header image](assets/readme-files/header.jpg)
+#### Start panel
+- Start panel contains h1 heading - the name of the game (i.e. YAHTZEE) and "Start game" button.
 
-    - The header contains the main logo and a navigation bar positioned on top of the main content.
+- "Start game" button is div with eventListener (event - 'click') attached to it. Clicking this button switches the game to Play panel.
+<br>
 
-    - The navigation bar contains links to all sections to facilitate navigation across the site. It also has a hover effect that changes color to provide feedback to the player for a better user experience.
+![Start panel](assets/img/start-panel.png)
+<br>
 
-* **Carousel**
+#### Play panel - comprises 3 consecutive areas.
 
-![Carousel gif](assets/readme-files/carousel.gif)
+- Playing area. 
 
-- A carousel design has been chosen to present the site content in order give more interactivity to the site and make it easy to navigate between the different sections.
+    - Includes 6 divs that represent 5 dices and "Roll dice" button. Css pseudoclass :active applies styles to these elements and immitate clicing effect. Below this row there is interactive information line which tells the player the number of throws left.
+    <br>
 
-* **Footer**
-![Footer image](assets/readme-files/footer.jpg)
+![Playing area](assets/img/play-area.png)
+<br>
 
-    - The footer include links to the site's social media channels.
+- Score area.
 
-* **Background**
-    - A video background has been added to devices with screens 1024px wide and up to add some animation to large displays.
+    - Allows the user to choose the line to write down the current score. Here also are presented total score and bonus point. Used fields are marked in red font.
+    <br>
 
-* **Landscape Orientation Blocker**
-![Landscape image](assets/readme-files/landscape-blocker.png)
+![Score area](assets/img/score-area.png)
+<br>
 
-    - When the player turns the device to landscape mode, the site show a full screen section to inform the user to use the site on portrait mode.
+- Auxiliary buttons area.
 
-### Home Section
-![Home section image](assets/readme-files/home-section.png)
+    - A row of three functional buttons, namly:
+        - "Game rules" button with eventListener (event - 'click') that switches to Game rules panel;
+        - "Restart game" button with eventListener (event - 'click') that allows to restart the game at any time;
+        - "Max score" button - switches user to the Max score panel.
+    <br>
 
-* **Main Image**
-    - The main image has been selected to represent the game in a fun way in order to engage the player.
+![Auxiliary buttons area](assets/img/auxiliary-buttons-area.png)
+<br>
 
-* **Main Buttons**
-    - The start game button work as a link to the game section.
+#### End game panel
 
-    - The feedback button open the feedback popup.
+- Shows the number of points won in the last game.
+- Below the final result is located the "Play again" button that returns the user to the play panel.
+    <br>
 
-* **Feedback Form Popup**
+![End game panel](assets/img/end-game-panel.png)
+<br>
 
-![Feedback popup gif](assets/readme-files/feedback-popup.gif)
+#### Game rules panel
 
-- Provide the player a popup form accessible from the home section to be able to submit their feedback.
+- It describes the general rules of the game that were used as a basis for writing the JS code.
+- To return to the game panel, there is a button "Back to play" located at the bottom of the game rules.
+    <br>
 
-### Instructions Section
-![Instructions section image](assets/readme-files/instructions-section.png)
+![Game rules panel](assets/img/end-game-panel.png)
 
-* The instructions section provides information to the player on how to play the game and present the weapons available in the game.
+<br>
 
-### Game section
-![Game section gif](assets/readme-files/game-section.gif)
+![Game rules panel - bottom](assets/img/game-rules-bottom.png)
+<br>
 
-* **Score Area**
-    - Keep track of the points obtained by the player and the computer and present the current score to the player.
+#### Max score panel
 
-* **Game Area**
-    - Display the weapons chosen by the player and the computer on each round.
+- Depicts 15 highes historical scores alongs with the date and time they were gained.
+- To return to the game panel, there is a button "Back to play" located at the bottom of the panel.
+    <br>
 
-* **Game Feedback**
-    - Provide feedback regarding the result of the the last round to the player.
+![Max score panel](assets/img/max-score-panel.png)
 
-* **Game Buttons**
-    - Allow the player to select the desired weapon to be used in the next round.
+<br>
 
-* **Rules Button**
-    - Open the rules popup.
+#### Locking of portrait screen orientation.
 
-* **Rules Popup**
+- Since landscape screen orientation is the most convenient for users in this game, a lock of portrait screen orientation was applied to mobile devices. For this reason a message is displayed on a screen, asking the user to rotate their mobile device.
+<br>
 
-![Rules popup gif](assets/readme-files/rules-popup.gif)
+![Locking portrait mode](assets/img/lock-portrait.png)
 
-- Provide the player a popup containing the game rules to make them easy accessible from the game section.
-
-### Result Section
-![Result section image](assets/readme-files/result-section.png)
-
-* The result section is an adaptable section that display the result of the game.
-
-* **Result Title**
-    - Displays the final score and if the player win or lose.
-
-* **GIF Image**
-    - Display a fun GIF that adapts depending on the game result.
-
-* **Section Buttons**
-    - The play again button close the result section to make the game available once again, clearing the last round.
-
-    - The main menu button work as a link to the home section.
-
-* **Section Background**
-    - The background display different color depending on the game result to provide better feedback to the player.
+<br>
 
 ### 404 Error Page
 ![404 error page image](assets/readme-files/404-error-page.png)

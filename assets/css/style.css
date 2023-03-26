@@ -13,14 +13,14 @@ html {
 
 body {
     font-family: 'Press Start 2P', sans-serif;
-    color: #eee;
-    background-color: #222;
+    color: #ededed;
+    background-color: #222222;
 }
 
 
 .main-panel {
     margin: 50px auto;
-    background: blue;
+    background: #0000ff;
     border: #624afe 20px solid;
     width: 67%;
     height: 600px;
@@ -37,7 +37,7 @@ body {
     padding: 17px;
     /* margin: 0 30px; */
     /* display: flex; */
-    background-color: rgb(183, 183, 183);
+    background-color: #b7b7b7;
     /* justify-content: center;
     align-items: center; */
     box-shadow:
@@ -107,8 +107,8 @@ h1 {
 #roll--dice {
     width: 100px;
     height: 100px;
-    background-color: rgb(160, 160, 160);
-    color: black;
+    background-color: #a0a0a0;
+    color: #000000;
     text-align: center;
     line-height: 130%;
     border: 2px solid #333;
@@ -144,8 +144,8 @@ h1 {
 }
 
 #throws span {
-    background-color: cornsilk;
-    color: green;
+    background-color: #fff8dc;
+    color: #008000;
     padding: 5px;
 }
 
@@ -156,12 +156,12 @@ h1 {
     padding: 20px;
     margin: 25px auto;
     width: 75%;
-    background: rgb(190, 190, 190);
+    background: #bebebe;
     height: 200px;
-    color: black;
+    color: #000000;
     line-height: 200%;
     box-shadow:
-        7px 12px 0 rgb(14, 14, 14);
+        7px 12px 0 #0e0e0e;
 }
 
 .score-history {
@@ -196,7 +196,7 @@ td {
 }
 
 .current-score:hover {
-    background-color: rgb(14, 14, 14);
+    background-color: #0e0e0e;
     color: white;
 }
 
@@ -225,11 +225,11 @@ td {
     border: 2px solid #333;
     margin: 0 30px;
     display: flex;
-    background-color: rgb(235, 34, 148);
+    background-color: #eb2294;
     justify-content: center;
     align-items: center;
     box-shadow:
-        3px 6px 0 rgb(14, 14, 14);
+        3px 6px 0 #0e0e0e;
     font-size: 0.65em;
     text-align: center;
     color: #222;
@@ -328,7 +328,7 @@ td {
 
 #block-portrait {
     display: none;
-    color: yellow;
+    color: #ffff00;
     background-color: #151311;
     font-size: 1.3em;
     line-height: 40px;
@@ -574,7 +574,7 @@ td {
 
     #block-portrait {
         display: block;
-        padding: 150px 20px 20px;
+        padding: 100px 20px 20px;
     }
 
     .main-panel {
