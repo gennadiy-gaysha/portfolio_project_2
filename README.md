@@ -202,7 +202,7 @@ For this project it was decided to use simple and straightforward website design
 - To return to the game panel, there is a button "Back to play" located at the bottom of the game rules.
     <br>
 
-![Game rules panel](assets/img/end-game-panel.png)
+![Game rules panel](assets/img/game-rules-panel.png)
 
 <br>
 
@@ -229,11 +229,14 @@ For this project it was decided to use simple and straightforward website design
 <br>
 
 ### 404 Error Page
-![404 error page image](assets/readme-files/404-error-page.png)
 
-*  This single page is being shown in case the customer enters an incorrect address into the address bar. It contains a link to the home section.
+- A 404 error page is an HTTP status code indicating that the server could not find the requested resource. When a user clicks on a broken link or enters an invalid URL, the server responds with a 404 error page, indicating that the requested page or resource does not exist on the server. For better user experience thie page was customized by including "Back to play" button that can help the user find what they are looking for.
+<br>
 
-[Back to top ⇧](#rpsls)
+![Error 404 page](assets/img/error-404.png)
+
+<br>
+
 
 ## Technologies Used
 

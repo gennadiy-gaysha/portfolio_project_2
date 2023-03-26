@@ -35,27 +35,12 @@ body {
     border: 2px solid #333;
     margin: 50px auto;
     padding: 17px;
-    /* margin: 0 30px; */
-    /* display: flex; */
     background-color: #b7b7b7;
-    /* justify-content: center;
-    align-items: center; */
     box-shadow:
         5px 10px 0 rgb(14, 14, 14);
-    /* font-size: 0.65em; */
     text-align: center;
     color: #222;
     cursor: pointer;
-
-
-    /* box-shadow:
-        5px 10px 0 rgb(14, 14, 14);
-    font-family: 'Press Start 2P', sans-serif;
-    text-align: center;
-    display: block;
-    margin: 50px auto;
-    padding: 20px; */
-    /* cursor: pointer; */
 }
 
 #start:active,
@@ -346,6 +331,38 @@ td {
     color: rgb(0, 182, 0);
 }
 
+/* Error-404 page */
+#error-page {
+    font-size: 2.5em;
+    text-align: center;
+    padding: 150px 30px 0;
+}
+
+#error-page h3 {
+    line-height: 2em;
+}
+
+#error-404 {
+    width: 200px;
+    height: 55px;
+    border: 2px solid #333;
+    margin: 50px auto;
+    padding: 20px 0;
+    background-color: #b7b7b7;
+    box-shadow:
+        5px 10px 0 rgb(14, 14, 14);
+    text-align: center;
+    color: #222;
+    font-size: 0.55em;
+    cursor: pointer;
+}
+
+#error-404:active {
+    box-shadow: 5px 5px 0 rgb(14, 14, 14);
+    transform: translate(0, 5px);
+}
+
+
 
 /* MEDIA QUERIES */
 
@@ -487,6 +504,14 @@ td {
     #end-game h1 {
         font-size: 1.9em;
         padding-top: 52px;
+    }
+
+    #error-404 {
+        margin: 35px auto;
+    }
+
+    #error-page {
+        padding: 25px 40px 0;
     }
 }
 
