@@ -163,9 +163,15 @@ For this project it was decided to use simple and straightforward website design
 - Playing area. 
 
     - Includes 6 divs that represent 5 dices and "Roll dice" button. Css pseudoclass :active applies styles to these elements and immitate clicing effect. Below this row there is interactive information line which tells the player the number of throws left.
+    - In case, if after a series of three throws, the user presses "Roll dice" button for the fourth time before recording the score, a warning message appears that the round is over, and the score needs to be recorded.
     <br>
 
 ![Playing area](assets/img/play-area.png)
+<br>
+
+<br>
+
+![Alert message](assets/img/alert.png)
 <br>
 
 - Score area.

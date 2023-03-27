@@ -595,7 +595,14 @@ td {
     }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 600px) {
+    .score-container {
+        font-size: 0.9rem;
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width: 567px) {
 
     #block-portrait {
         display: block;

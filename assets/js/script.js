@@ -1,13 +1,13 @@
 /* jshint esversion: 6 */
 
 //Error-404 "Back to play" button
-document.addEventListener('DOMContentLoaded', function () {
-    const error404 = document.getElementById('error-404');
+// document.addEventListener('DOMContentLoaded', function () {
+//     const error404 = document.getElementById('error-404');
 
-    error404.addEventListener('click', function () {
-        window.location.href = 'index.html';
-    });
-});
+//     error404.addEventListener('click', function () {
+//         window.location.href = 'index.html';
+//     });
+// });
 
 
 function saveResultsToLocal() {
@@ -55,31 +55,34 @@ document.querySelector(".button-position").addEventListener("click", function ()
     document.getElementById("play-area").style.display = "block";
 });
 
-document.getElementById("start").addEventListener("click", function () {
-    const removePanel = document.getElementById("start-panel");
-    const addPanel = document.getElementById("play-area");
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById("start").addEventListener("click", function () {
+        const removePanel = document.getElementById("start-panel");
+        const addPanel = document.getElementById("play-area");
 
-    removePanel.style.display = "none";
-    addPanel.style.display = "block";
+        removePanel.style.display = "none";
+        addPanel.style.display = "block";
 
-    //Add clicking Enter or Spacebar button to fire rollDice function
+        //Add clicking Enter or Spacebar button to fire rollDice function
 
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
-            document.getElementById("roll--dice").style.boxShadow = "5px 5px 0 rgb(14, 14, 14)";
-            document.getElementById("roll--dice").style.transform = "translate(0, 5px)";
-        }
-    });
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+                document.getElementById("roll--dice").style.boxShadow = "5px 5px 0 rgb(14, 14, 14)";
+                document.getElementById("roll--dice").style.transform = "translate(0, 5px)";
+            }
+        });
 
-    document.addEventListener("keyup", function (event) {
-        if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
-            document.getElementById("roll--dice").style.boxShadow = "5px 10px 0 rgb(14, 14, 14)";
-            document.getElementById("roll--dice").style.transform = "translate(0, 0)";
+        document.addEventListener("keyup", function (event) {
+            if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+                document.getElementById("roll--dice").style.boxShadow = "5px 10px 0 rgb(14, 14, 14)";
+                document.getElementById("roll--dice").style.transform = "translate(0, 0)";
 
-            rollDice();
-        }
-    });
-});
+                rollDice();
+            }
+        })
+    })
+})
+
 
 //Hold the dice number on click
 
@@ -160,7 +163,7 @@ function rollDice() {
 
         // =========================================================================
     } else {
-        alert("Please, choose the line to enter your current score");
+        alert("You have no throws left. Please, choose the line to enter your current score");
     }
 
     counter -= 1;
