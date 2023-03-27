@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (error404) {
         error404.addEventListener('click', function () {
-            window.location.href('index.html')
+            window.location.href = 'index.html';
         })
     }
 
