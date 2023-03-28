@@ -6,66 +6,42 @@ Yahtzee is a popular dice game that is played with five standard six-sided dice.
 series of rounds, and each round involves rolling the dice up to three times in an attempt to get certain
 combinations of dice faces.
 
-## Basic rules of Yahtzee:
+This website is created for users who love mathematics and computer games. The game is based not only on luck, but also on the ability to manage available resources (current score) in order to achieve the highest possible result.
 
-- At the beginning of each round, the player rolls all five dice.
-- After the first roll, the player can choose to keep any number of dice and re-roll the rest. The player can do this up to two more times.
-- Once the player has finished rolling the dice, they must choose a category to score. There are 13 categories, each with different requirements:
-    - Ones: Score the total of all dice showing the number 1.
-    - Twos: Score the total of all dice showing the number 2.
-    - Threes: Score the total of all dice showing the number 3.
-    - Fours: Score the total of all dice showing the number 4.
-    - Fives: Score the total of all dice showing the number 5.
-    - Sixes: Score the total of all dice showing the number 6.
-    - Bonus: The Left section is the first six rows - ones, twos, threes, fours, fives and sixes. If the sum of your score in the Left
-section is greater than or equal to 63, you automatically get 35 bonus points.
-    - Three of a kind: Score the total of all dice if there are at least three of the same number.
-    - Four of a kind: Score the total of all dice if there are at least four of the same number.
-    - Full house: Score 25 points if there are three of one number and two of another.
-    - Small straight: Score 30 points if there are four sequential numbers.
-    - Large straight: Score 40 points if there are five sequential numbers.
-    - Yahtzee: Score 50 points if all five dice show the same number.
-    - Chance: Score the total of all dice, regardless of the numbers.
-
-Once the player has chosen a category to score, they cannot choose that category again for the rest of the game.
-The game continues for 13 rounds, after which the player with the highest total score wins.
-
-These are the basic rules of Yahtzee, but there are many variations and additional rules that can be added to make the game more interesting or challenging.
-
-Visit the deployed website [here](https://gennadiy-gaysha.github.io/portfolio_project_2/).
+Visit the deployed website [here](https://gennadiy-gaysha.github.io/portfolio_project_2/index.html).
 
 ## Table of Contents
 
-1. [User Experience (UX)](#User-experience-UX)
+1. [User Experience (UX)](#user-experience-ux)
     1. [Project Goals](#project-goals)
-    2. [User Stories](#User-stories)
+    2. [User Stories](#user-stories)
     3. [Color Scheme](#color-scheme)
     4. [Typography](#typography)
     5. [Mockup](#mockup)
 2. [Features](#features)
     1. [General](#general)
-    2. [Home Section](#home-section)
-    3. [Instructions Section](#instructions-section)
-    4. [Game section](#game-section)
-    5. [Result Section](#result-section)
-    6. [404 Error Page](#404-error-page)
+    2. [Start panel](#start-panel)
+    3. [Play panel](#play-panel)
+    4. [End game panel](#end-game-panel)
+    5. [Game rules panel](#game-rules-panel)
+    6. [Max score panel](#max-score-panel)
+    7. [Locking portrait mode](#locking-portrait-mode)
+    6. [404 Error page](#404-error-page)
 3. [Technologies Used](#technologies-used)
     1. [Languages Used](#languages-used)
     2. [Frameworks, Libraries and Programs Used](#frameworks-libraries-and-programs-used)
 4. [Testing](#testing)
-    1. [Testing User Stories](#testing-User-stories)
+    1. [Testing User Stories](#testing-user-stories)
     2. [Code Validation](#code-validation)
     3. [Accessibility](#accessibility)
     4. [Tools Testing](#tools-testing)
     5. [Manual Testing](#manual-testing)
 5. [Finished Product](#finished-product)
 6. [Deployment](#deployment)
-    1. [GitHub Pages](#github-pages)
 7. [Credits](#credits)
     1. [Content](#content)
     2. [Media](#media)
     3. [Code](#code)
-8. [Acknowledgements](#acknowledgements)
 
 ***
 
@@ -87,19 +63,20 @@ Visit the deployed website [here](https://gennadiy-gaysha.github.io/portfolio_pr
 
 ### User Stories
 
-* As a player, I want that the game's website is simple to explore and use.
+ - As a player, I want the game's website to be simple to explore and use so that I can quickly find information about the game and start playing.
 
-* As a player, I wish for the game to be entertaining and captivating.
+ - As a player, I wish for the game to be entertaining and captivating so that I can enjoy my gaming experience and feel motivated to keep playing.
 
-* As a player, I would like to have effortless availability to the game rules.
+ - As a player, I would like to have effortless availability to the game rules so that I can easily reference them if needed and play the game with a clear understanding of the rules.
 
-* As a player, I expect the game controls to be readily accessible while playing.
+ - As a player, I expect the game controls to be readily accessible while playing so that I can easily control my game actions and respond quickly to changes in the game.
 
-* As a player, I wish the ability to retain my gained score history to compare it with my current rusult.
+ - As a player, I wish to retain my gained score history so that I can track my progress and compare my scores with other players.
 
-* As a player, I would like to play the game on various devices.
+ - As a player, I would like to play the game on various devices so that I can have the flexibility to play the game on my preferred device.
 
-* As a player, I want to experience lifelike sound effects to be realistic.
+ - As a player, I want to experience lifelike sound effects so that I can fully immerse myself in the game and enhance my overall gaming experience.
+
 
 ### Color Scheme
 
@@ -132,7 +109,7 @@ For this project it was decided to use simple and straightforward website design
 
 ![Play area image](assets/img/play-area-mockup.png)
 
-[Back To The Table of Contents](#table-of-contents)
+[Back To The Table of Contents ⇧](#table-of-contents)
 
 ## Features
 
@@ -218,9 +195,9 @@ For this project it was decided to use simple and straightforward website design
 
 <br>
 
-#### Locking of portrait screen orientation.
+#### Locking portrait mode
 
-- Since landscape screen orientation is the most convenient for Users in this game, a lock of portrait screen orientation was applied to mobile devices. For this reason a message is displayed on a screen, asking the User to rotate their mobile device.
+- Since landscape screen orientation is the most convenient for Users in this game, a lock of portrait screen orientation was applied to mobile devices. For this reason a message is displayed on a screen, asking the User to rotate their mobile device.This message was intentionally written in a humorous form to create an informal atmosphere for the User.
 <br>
 
 ![Locking portrait mode](assets/img/lock-portrait.png)
@@ -236,7 +213,7 @@ For this project it was decided to use simple and straightforward website design
 
 <br>
 
-[Back To The Table of Contents](#table-of-contents)
+[Back To The Table of Contents ⇧](#table-of-contents)
 
 ## Technologies Used
 
@@ -271,7 +248,7 @@ For this project it was decided to use simple and straightforward website design
 * [JSHint](https://jshint.com/) 
     - The JSHints JavaScript Code Quality Tool was used to validate the site's JavaScript code.
 
-[Back To The Table of Contents](#table-of-contents)
+[Back To The Table of Contents ⇧](#table-of-contents)
 
 ## Testing
 
@@ -416,87 +393,68 @@ Microsoft Edge | No problems related to the appearance, responsiveness or functi
 |  |  | <= 850 | Look good and function on the chosen screen size using the   Chrome devtools toolbar | Pass |
 |  |  | <= 768 | Look good and function on the chosen screen size using the   Chrome devtools toolbar | Pass |
 |  |  | <= 567 | A   panel with an informational message appears, suggesting that the user rotate   their mobile device to landscape mode | Pass |
-| 404 Error page | Page itself | Functionality | Appears   when a user attempts to access a page that does not exist on the website | Pass |
+| 404 Error page | Page itself | Functionality | Appears when a user attempts to access a page that does not exist on the website | Pass |
 |  | "Back to play" button | Style | Hovering over the button sets the cursor property to "pointer" | Pass |
 |  | "Back to play" button | Style | Clicking on the button mimics the effect of physically clicking the   button | Pass |
 |  | "Back to play" button | Functionality | Clicking the button redirects the User to Play panel hiding the 404 Error   page | Pass |
+| Sound effects | Roll-dice sound  | Functionality | Occurs when the User clicks on "Roll dice" button | Pass |
+|  | Entered current score sound | Functionality | Occurs when the User enters their current score | Pass |
+|  | Yahtzee won sound | Functionality | Occurs when Yahtzee is rolled | Pass |
+|  | Bonus won sound | Functionality |Occurs when User earns a bonus | Pass |
+|  | End of the game sound | Functionality |Occurs when the round ends | Pass |
 
-[Back to top ⇧](#rpsls)
+
+[Back To The Table of Contents ⇧](#table-of-contents)
 
 ## Finished Product
 
 Page / Section | Image
 --- | ---
-Desktop Version | ![Desktop version image](assets/readme-files/desktop-version.png)
-Home Section | ![Home section image](assets/readme-files/full-home-section.png)
-Feedback Popup | ![Feedback popup image](assets/readme-files/full-feedback-popup.png)
-Instructions Section | ![Home section image](assets/readme-files/full-instructions-section.png)
-Game Section | ![Game section image](assets/readme-files/full-game-section.png)
-Rules Popup | ![Rules popup image](assets/readme-files/full-rules-popup.png)
-Result Sections | ![Result section image](assets/readme-files/result-section.png)
-Landscape Orientation Blocker | ![Landscape image](assets/readme-files/landscape-blocker.png)
-404 Error Page | ![404 error page image](assets/readme-files/404-error-page.png)
+Desktop Version | ![Desktop version image](assets/img/game-panel-desktop.png)
+Mobile version (for screen whidth <= 768px)| ![Mobile version image](assets/img/game-panel-mobile.png)
+Start panel | ![Start panel image](assets/img/start-panel.png)
+Game rules panel | ![Game rules image](assets/img/game-rules-panel.png)
+Max score panel | ![Max score table image](assets/img/max-score-panel.png)
+End game panel | ![End game image](assets/img/end-game-panel.png)
+Lock of portrait mode | ![Portrait mode image](assets/img/lock-portrait-mobile.png)
+404 Error Page | ![404 error page image](assets/img/error-404.png)
 
-[Back to top ⇧](#rpsls)
+<br>
+
+[Back To The Table of Contents ⇧](#table-of-contents)
 
 ## Deployment
 
-* This website was developed using [GitPod](https://www.gitpod.io/), which was then committed and pushed to GitHub using the GitPod terminal.
+- This website was developed using [GitPod](https://www.gitpod.io/), which was then committed and pushed to GitHub using the GitPod terminal.
 
-### GitHub Pages
-
-* Here are the steps to deploy this website to GitHub Pages from its GitHub repository:
-
+- The site was deployed to GitHub pages. The steps to deploy are as follows: 
     1. Log in to GitHub and locate the [GitHub Repository](https://github.com/).
-
     2. At the top of the Repository, locate the Settings button on the menu.
-
-        - Alternatively click [here](https://raw.githubUsercontent.com/) for a GIF demostration of the process.
-
-    3. Scroll down the Settings page until you locate the Pages section.
-
-    4. Under Source, click the dropdown called None and select Master Branch.
-
+    3. On the left of the Settings page choose the Pages section.
+    4. Under Source, click the dropdown called None and select Main Branch.
     5. The page will refresh automatically and generate a link to your website.
 
-[Back to top ⇧](#rpsls)
+You can visit the deployed website  [here](https://gennadiy-gaysha.github.io/portfolio_project_2/index.html)
 
 ## Credits
 
+- I'm acknowleged to my student friends who introduced me to the computer game Yahtzee back in the 80s. I tried to reproduce the design of that exact game as accurately as possible on my website.
+- Since the JS code for creating an [interactive table](#max-score-panel) with historical results (Max score panel) was written with the help of prompts from the GPT chat, it cannot be considered written by me personally.
+
 ### Content
 
-* The instructions and rules were taken from the [Big Bang Theory Wiki](https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock).
+- Markdown for the testing table in readme.md file was created using [Tables Generator](https://www.tablesgenerator.com/markdown_tables) 
+- Grammar and spelling were checked using the power of [GPT Chat](https://chat.openai.com/chat) and [Grammarly](https://www.grammarly.com/) web app. 
 
 ### Media
 
-* The main image was taken from [TeePublic](https://www.teepublic.com/t-shirt/17021-rock-paper-scissors) and was designed by [Samiel](https://www.teepublic.com/User/samiel).
-
-* The GIF used in the 404 error page was taken from [GIPHY](https://giphy.com/gifs/paper-bag-breathing-aa9VQ6gg5wCBy).
-
-* The background video was taken from [Pexels](https://www.pexels.com/video/arrow-shape-design-on-green-background-4665103/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) and was created by [Miguel Á. Padriñán](https://www.pexels.com/@padrinan?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels). 
+- All sound effects were taken from open source site [https://pixabay.com/](https://pixabay.com/sound-effects/search/dice/).
+- The images used as [Mockups](#mockup) were taken from open source sites.
 
 ### Code
 
-* [Stack Overflow](https://stackoverflow.com/), [CSS-Tricks](https://css-tricks.com/) and [W3Schools](https://www.w3schools.com/) were consulted on a regular basis for inspiration and sometimes to be able to better understand the code being implement.
+- I've been constantly using [Stack Overflow](https://stackoverflow.com/), 
+[W3Schools](https://www.w3schools.com/) and Chrome Dev tools for inspiration 
+and better understanding the code being implemented.
 
-* The code for the carousel is a modified version of the CSS-Tricks code found [here](https://css-tricks.com/css-only-carousel/ ).
-
-* The code for the popups is a modified version of the W3Schools code found [here](https://www.w3schools.com/howto/howto_js_popup_form.asp).
-
-* The code to apply the full screen background was found at [CSS-Tricks](https://css-tricks.com/full-page-background-video-styles/).
-
-[Back to top ⇧](#rpsls)
-
-## Acknowledgements
-
-* My partner, for her unconditional love, help and continued support in all aspects of life to make possible for me to complete this project.
-
-* My family, for their valuable opinions, critics and support during the design and development process.
-
-* My tutor, Marcel, for his invaluable feedback and guidance.
-
-* My friend, Miguel, for all the late calls, support and ideas that made me challenge myself.
-
-* Code Institute and its amazing Slack community for their support and providing me with the necessary knowledge to complete this project.
-
-[Back to top ⇧](#rpsls)
+[Back To The Table of Contents ⇧](#table-of-contents)
