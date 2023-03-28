@@ -486,7 +486,7 @@ td {
 
 @media screen and (max-width: 992px) {
     .main-panel {
-        margin: 0;
+        margin: 0 auto;
         width: 85%;
     }
 }
@@ -595,7 +595,7 @@ td {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 616px) {
     .score-container {
         font-size: 0.9rem;
         padding-top: 30px;

@@ -1,14 +1,5 @@
 /* jshint esversion: 6 */
 
-//Error-404 "Back to play" button
-// document.addEventListener('DOMContentLoaded', function () {
-//     const error404 = document.getElementById('error-404');
-
-//     error404.addEventListener('click', function () {
-//         window.location.href = 'index.html';
-//     });
-// });
-
 
 function saveResultsToLocal() {
     localStorage.setItem("yahtzeeResults", JSON.stringify(yahtzeeResults));
@@ -79,9 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 rollDice();
             }
-        })
-    })
-})
+        });
+    });
+});
 
 
 //Hold the dice number on click
@@ -176,7 +167,7 @@ function rollDice() {
     }
     //Adding this statement here prevents from changing dice color just after the third throw
     else if (counter === 0) {
-        throwElement.innerHTML = `<p>Please, write down your current score</p>`;
+        throwElement.innerHTML = `<p style="color: darkgreen; background-color: white; padding: 5px;">Please, write down your current score</p>`;
         const dices = document.getElementsByClassName("dice");
         for (let dice of dices) {
             dice.removeEventListener("click", holdButtonColor);
