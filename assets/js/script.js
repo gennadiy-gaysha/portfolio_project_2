@@ -1,5 +1,6 @@
 /* jshint esversion: 6 */
 
+// Saving results on user's web browser:
 
 function saveResultsToLocal() {
     localStorage.setItem("yahtzeeResults", JSON.stringify(yahtzeeResults));
@@ -18,34 +19,38 @@ yahtzeeResults.results.forEach((result) => {
     addResultToTable(result);
 });
 
-//Starting the game by switching between start-panel and play-area panel
-
+// Create new Audio objects and set the source:
 let diceSound = new Audio("assets/js/dice-roll.mp3");
 let enterScoreSound = new Audio("assets/js/enter-score.mp3");
 let yahtzeeSound = new Audio("assets/js/yahtzee.mp3");
 let yahtzeeFiftySound = new Audio("assets/js/yahtzee_50.mp3");
 let bonusSound = new Audio("assets/js/bonus.mp3");
 
+// Add eventListener to "Game rules" button
 document.getElementById("rules-button").addEventListener("click", function () {
     document.getElementById("play-area").style.display = "none";
     document.getElementById("game-rules").style.display = "block";
 });
 
+// Add eventListener to "Back to play" button
 document.querySelector(".back-button").addEventListener("click", function () {
     document.getElementById("play-area").style.display = "block";
     document.getElementById("game-rules").style.display = "none";
 });
 
+// Add eventListener to "Max score" button
 document.getElementById("max-score").addEventListener("click", function () {
     document.querySelector(".score-results").style.display = "block";
     document.getElementById("play-area").style.display = "none";
 });
 
+// Add eventListener to "Back to play" button in Max score panel
 document.querySelector(".button-position").addEventListener("click", function () {
     document.querySelector(".score-results").style.display = "none";
     document.getElementById("play-area").style.display = "block";
 });
 
+//Starting the game by switching between start-panel and play-area panel
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("start").addEventListener("click", function () {
         const removePanel = document.getElementById("start-panel");
@@ -54,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         removePanel.style.display = "none";
         addPanel.style.display = "block";
 
-        //Add clicking Enter or Spacebar button to fire rollDice function
+        // Add clicking effect to Enter or Spacebar button and calling rollDice function after unklicking them
 
         document.addEventListener("keydown", function (event) {
             if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
@@ -113,7 +118,16 @@ document.getElementById("roll--dice").addEventListener("mouseup", function () {
     this.style.boxShadow = "5px 10px 0 rgb(14, 14, 14)";
     this.style.transform = "translate(0, 0)";
 });
-
+/**
+ * This function incorporates multiple functionalities such as: 
+ * 1. controlling the number of throws left;
+ * 2. removing red cap from the dice;
+ * 3. rolling dice sound effect;
+ * 4. generating random numbers; 
+ * 5. controlling hold/unhold dice color;
+ * 6. making current score elements active (ready to save the score)
+ * 7. displaying the number of throws left in the infoline
+ */
 function rollDice() {
     if (counter > 0) {
         //Calling this function here allows us to remove the red cap and make the dice numbers visible
@@ -123,6 +137,7 @@ function rollDice() {
         diceSound.volume = 0.2;
         diceSound.play();
 
+        //Choose a dice image (1-6) that corresponds with the randomly generated number
         const diceImages = document.getElementsByClassName("unhold-dice");
         for (let diceImage of diceImages) {
             let diceNumber = Math.floor(Math.random() * 6 + 1);
@@ -137,11 +152,6 @@ function rollDice() {
             dice.addEventListener("click", holdButtonColor);
         }
 
-        //Adding this eventListener here allows us to write down (fix) current score only after
-        //the 'Roll dice' button is clicked (but not before!)
-        // =========================================================================
-        //document.getElementById('current-sixes-score').addEventListener('click', addSixes);
-        // =========================================================================
         const currentScoreLeft = document.querySelectorAll(".left-current-score");
         currentScoreLeft.forEach((element) => {
             element.addEventListener("click", addScoreLeft);
@@ -158,6 +168,8 @@ function rollDice() {
     }
 
     counter -= 1;
+
+    //Infoline under the row of dice in Game area
     const throwElement = document.getElementById("throws");
 
     if (counter > 1) {
@@ -167,7 +179,8 @@ function rollDice() {
     }
     //Adding this statement here prevents from changing dice color just after the third throw
     else if (counter === 0) {
-        throwElement.innerHTML = `<p style="color: darkgreen; background-color: white; padding: 5px;">Please, write down your current score</p>`;
+        throwElement.innerHTML = `<p style="color: darkgreen; background-color: white; padding: 2px 5px;">Please, write down your current score</p>`;
+
         const dices = document.getElementsByClassName("dice");
         for (let dice of dices) {
             dice.removeEventListener("click", holdButtonColor);
@@ -178,6 +191,9 @@ function rollDice() {
 let leftScoreCount = 0;
 let bonusSoundPlayed = false;
 
+/**
+ * This function provides the ability to record the current score in the left panel of the table and add it to the total score
+ */
 function addScoreLeft(event) {
     leftScoreCount++;
     enterScore(); //counter returns to 3 after score is added
@@ -187,7 +203,7 @@ function addScoreLeft(event) {
     const currentScoreLeft = document.querySelectorAll(".left-current-score");
     const currentScoreRight = document.querySelectorAll(".right-current-score");
 
-    //Current score passed to the fixed score
+    //Current score passed to the fixed score (adjacent cells(td) one of which is invisible)
     this.nextElementSibling.textContent = event.target.textContent;
     // =======================================================================
     const currentFixed = event.target.textContent;
@@ -206,6 +222,7 @@ function addScoreLeft(event) {
     totalNumber += currentFixedNumber;
     total.textContent = totalNumber;
 
+    //Generates bonus score if left-panel score is equal or more than 63
     const bonusText = document.getElementById("bonus");
     const bonus = document.getElementById("fixed-bonus-score");
     const bonusRight = document.getElementById("bonus-right");
@@ -254,6 +271,9 @@ let rightScoreCount = 0;
 //Yahtzee_50 points won sound
 let yahtzeePlaySound = false;
 
+/**
+ * This function provides the ability to record the current score in the reight panel of the table and add it to the total score
+ */
 function addScoreRight(event) {
     rightScoreCount++;
     enterScore(); //counter returns to 3 after score is added
@@ -311,6 +331,9 @@ function addScoreRight(event) {
     endGame();
 }
 
+/**
+ * Reveals the End Game panel, displaying the score gained after all score fields have been completed
+ */
 function endGame() {
     if (leftScoreCount === 6 && rightScoreCount === 7) {
         yahtzeeSound.play();
@@ -325,6 +348,9 @@ function endGame() {
 
 document.getElementById("start-new-game").addEventListener("click", startNewGame);
 
+/**
+ * Resets the elements of the game area and the score area to their initial state
+ */
 function startNewGame() {
     document.getElementById("play-area").style.display = "block";
     document.getElementById("end-game").style.display = "none";
@@ -369,7 +395,6 @@ document.getElementById("throws").innerHTML = `You have <span>3</span> throws le
 /**
  *  Removes the red cap and make the dices visible
  */
-
 function revealDice() {
     const redDices = document.getElementsByClassName("red");
     const diceImages = document.getElementsByClassName("dice-image");
@@ -488,7 +513,6 @@ function displayCurrentScore() {
 /**
  * Assigns value to global variable after the game starts
  */
-
 function enterScore() {
     document.getElementById("throws").innerHTML = `You have <span>3</span> throws left. Good luck!`;
     counter = 3;
@@ -526,7 +550,6 @@ function initialState() {
 /**
  * Resets all the score lines that were not clicked after fixing current score
  */
-
 function deleteCurrentScore() {
     const removeElsLeft = document.getElementsByClassName("left-current-score");
     const removeElsRight = document.getElementsByClassName("right-current-score");
@@ -539,9 +562,13 @@ function deleteCurrentScore() {
         removeEl.textContent = 0;
     }
 }
-
+// ===================================================================================
 //Max Score
-//Define a function to add new results to the object
+// ===================================================================================
+/**
+ * Function that adds new results to the object
+ */
+
 function addResult(score) {
     const result = {
         score: score,
@@ -570,8 +597,11 @@ function addResult(score) {
     return yahtzeeResults;
 }
 
-// Adds a single result to the table. This function is called from both
-//addResult and the initial loading of results from localStorage.
+
+/**
+ * Adds a single result to the table. This function is called from both
+ * addResult and the initial loading of results from localStorage
+ */
 function addResultToTable(result, index) {
     const tableBody = document.querySelector("#resultsTable tbody");
     const row = document.createElement("tr");

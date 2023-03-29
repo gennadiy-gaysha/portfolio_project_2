@@ -49,17 +49,17 @@ Visit the deployed website [here](https://gennadiy-gaysha.github.io/portfolio_pr
 
 ### Project Goals
 
-* The website should offer a layout that is straightforward to comprehend and traverse.
+ - The website should offer a layout that is straightforward to comprehend and traverse.
 
-* The website should contain complementary colors that interactivity to engage the player in the game play.
+ - The website design should incorporate complementary colors to enhance interactivity and engage the player during gameplay.
 
-* Responsive design should make the game accessible on different devices.
+ - Responsive design should make the game accessible on different devices.
 
-* The website should comprise rule section that is easily accessible to the player..
+ - The website should comprise Game rules section that is easily accessible to the player.
 
-* It should also include a maximum score table with the history of the maximum scores gained.
+ - It should also include a maximum score table with the history of the maximum scores gained.
 
-* The game should contain sound effects that create an immersive gaming atmosphere.
+ - The game should contain sound effects that create an immersive gaming atmosphere.
 
 ### User Stories
 
@@ -115,7 +115,7 @@ For this project it was decided to use simple and straightforward website design
 
 ### General
 
- - The website has been designed with a focus on the laptop User experience.
+ - The website has been designed with a focus on the laptop User experience. However, the game can also be played on mobile phones in landscape mode.
 
  - The website has a responsive design that works seamlessly across all screen sizes and device types.
 
@@ -187,7 +187,7 @@ For this project it was decided to use simple and straightforward website design
 
 #### Max score panel
 
-- Depicts 15 highes historical scores alongs with the date and time they were gained.
+- Depicts 15 highes historical scores along with the date and time they were gained.
 - To return to the game panel, there is a button "Back to play" located at the bottom of the panel.
     <br>
 
@@ -254,13 +254,11 @@ For this project it was decided to use simple and straightforward website design
 
 ### Testing User Stories
 
-* As a player, I want that the game's website is simple to explore and use.
-
+ - As a player, I want the game's website to be simple to explore and use so that I can quickly find information about the game and start playing.
     - All buttons have labels corresponding to their functional purpose.
-
     - The information bar in the [Playing area](#play-panel) informs the User about the number of remaining throws or asks the User to record the current score after using all attempts.
 
-* As a player, I wish for the game to be entertaining and captivating.
+ - As a player, I wish for the game to be entertaining and captivating so that I can enjoy my gaming experience and feel motivated to keep playing.
     - Bright complementary colors and retro design immerse the User in the atmosphere of the 80s, when computer games were just starting to appear.
     - The simplicity of the design doesn't distract the User from unnecessary details and allows them to focus directly on the game.
     - Sound effects create a lively atmosphere.
@@ -268,25 +266,22 @@ For this project it was decided to use simple and straightforward website design
     - The ability to roll the dices by pressing the enter or spacebar key provides additional convenience for the User.
     - If the User is not satisfied with their current score, they can restart the game at any time by clicking the "Restart game" button.
     
-* As a player, I would like to have effortless availability to the game rules.
-
+ - As a player, I would like to have effortless availability to the game rules so that I can easily reference them if needed and play the game with a clear understanding of the rules.
     - The rules of the game are described in the [Rules section](#game-rules-panel), which the User can access at any time by clicking the button at the bottom of the panel.
 
-* As a player, I expect the game controls to be readily accessible while playing.
-
+ - As a player, I expect the game controls to be readily accessible while playing so that I can easily control my game actions and respond quickly to changes in the game.
     - An imitation clicking effect has been applied to all the buttons for a more interactive User experience.
     - All main ("Roll dice", "Hold dice") and 3 auxiliary ("Game rules", "Restart game" and "Max score") buttons are presented in the [Playing area](#play-panel)
     - The User can easily return back to play from any panel by clicking on "Back to play" button.
 
-* As a player, I wish the ability to retain my gained score history.
+ - As a player, I wish to retain my gained score history so that I can track my progress and compare my scores with other players.
     - The score area allows the user to enter their current score and displays the total score and bonus points. The fields for entering the score are highlighted in red font for easy identification. 
     - [Max score panel](#max-score-panel) depicts 15 highes historical scores alongs with the date and time they were gained.
 
-* As a player, I would like to play the game on various devices.
-
+ - As a player, I would like to play the game on various devices so that I can have the flexibility to play the game on my preferred device.
     - Responsive design across all device sizes was applied.
 
-* As a player, I want to experience lifelike sound effects.
+ - As a player, I want to experience lifelike sound effects so that I can fully immerse myself in the game and enhance my overall gaming experience.
     - To make this game more natural and engaging, there were 5 sound effects applied:
         - Roll-dice sound
         - Entered current score sound
@@ -439,7 +434,7 @@ You can visit the deployed website  [here](https://gennadiy-gaysha.github.io/por
 ## Credits
 
 - I'm acknowleged to my student friends who introduced me to the computer game Yahtzee back in the 80s. I tried to reproduce the design of that exact game as accurately as possible on my website.
-- Since the JS code for creating an [interactive table](#max-score-panel) with historical results (Max score panel) was written with the help of prompts from the GPT chat, it cannot be considered written by me personally.
+- Since the JS code for creating an [interactive table](#max-score-panel) with historical results (Max score panel) was written with the help of prompts from the [GPT Chat](https://chat.openai.com/chat), it cannot be considered written by me personally.
 
 ### Content
 
