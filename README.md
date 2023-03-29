@@ -441,7 +441,7 @@ To make changes to the code without affecting the original version stored in the
 
 - Install Git on your local machine, if it is not already installed.
 - Navigate to the repository you want to clone in a web browser.
-- Click the "Clone or download" button and copy the repository's URL to your clipboard.
+- Click the "Clone or download" button and copy the repository's URL (`https://github.com/gennadiy-gaysha/portfolio_project_2.git`)to your clipboard.
 - Open a terminal or command prompt on your local machine.
 - Change to the directory where you want to clone the repository.
 - Type the command `git clone https://github.com/gennadiy-gaysha/portfolio_project_2.git` and press enter.
