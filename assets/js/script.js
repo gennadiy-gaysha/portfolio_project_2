@@ -272,7 +272,7 @@ let rightScoreCount = 0;
 let yahtzeePlaySound = false;
 
 /**
- * This function provides the ability to record the current score in the reight panel of the table and add it to the total score
+ * This function provides the ability to record the current score in the right panel of the table and add it to the total score
  */
 function addScoreRight(event) {
     rightScoreCount++;
