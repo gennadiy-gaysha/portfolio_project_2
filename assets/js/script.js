@@ -50,6 +50,28 @@ document.querySelector(".button-position").addEventListener("click", function ()
     document.getElementById("play-area").style.display = "block";
 });
 
+/**
+ * Generates 'press the button' effect when User clicks Enter or Spacebar button
+ */
+function clickEnter(event) {
+    if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+        document.getElementById("roll--dice").style.boxShadow = "5px 5px 0 rgb(14, 14, 14)";
+        document.getElementById("roll--dice").style.transform = "translate(0, 5px)";
+    }
+}
+
+/**
+ * Generates 'unpress the button' effect when User unclicks Enter or Spacebar button and calls rollDice() function
+ */
+function unclickEnter(event) {
+    if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+        document.getElementById("roll--dice").style.boxShadow = "5px 10px 0 rgb(14, 14, 14)";
+        document.getElementById("roll--dice").style.transform = "translate(0, 0)";
+
+        rollDice();
+    }
+}
+
 //Starting the game by switching between start-panel and play-area panel
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("start").addEventListener("click", function () {
@@ -61,24 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Add clicking effect to Enter or Spacebar button and calling rollDice function after unklicking them
 
-        document.addEventListener("keydown", function (event) {
-            if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
-                document.getElementById("roll--dice").style.boxShadow = "5px 5px 0 rgb(14, 14, 14)";
-                document.getElementById("roll--dice").style.transform = "translate(0, 5px)";
-            }
-        });
-
-        document.addEventListener("keyup", function (event) {
-            if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
-                document.getElementById("roll--dice").style.boxShadow = "5px 10px 0 rgb(14, 14, 14)";
-                document.getElementById("roll--dice").style.transform = "translate(0, 0)";
-
-                rollDice();
-            }
-        });
+        document.addEventListener("keydown", clickEnter);
+        document.addEventListener("keyup", unclickEnter);
     });
 });
-
 
 //Hold the dice number on click
 
@@ -343,6 +351,9 @@ function endGame() {
 
         // save the object in the localStorage
         addResult(document.getElementById("total").textContent);
+
+        document.removeEventListener("keydown", clickEnter);
+        document.removeEventListener("keyup", unclickEnter);
     }
 }
 
@@ -352,6 +363,10 @@ document.getElementById("start-new-game").addEventListener("click", startNewGame
  * Resets the elements of the game area and the score area to their initial state
  */
 function startNewGame() {
+
+    document.addEventListener("keydown", clickEnter);
+    document.addEventListener("keyup", unclickEnter);
+
     document.getElementById("play-area").style.display = "block";
     document.getElementById("end-game").style.display = "none";
 
