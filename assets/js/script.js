@@ -30,24 +30,36 @@ let bonusSound = new Audio("assets/js/bonus.mp3");
 document.getElementById("rules-button").addEventListener("click", function () {
     document.getElementById("play-area").style.display = "none";
     document.getElementById("game-rules").style.display = "block";
+    //Blocks Enter and Spacebar buttons when Game rules panel is displayed
+    document.removeEventListener("keydown", clickEnter);
+    document.removeEventListener("keyup", unclickEnter);
 });
 
 // Add eventListener to "Back to play" button
 document.querySelector(".back-button").addEventListener("click", function () {
     document.getElementById("play-area").style.display = "block";
     document.getElementById("game-rules").style.display = "none";
+    //Ulocks Enter and Spacebar buttons when "Back to play" on Game rules panel button is clicked
+    document.addEventListener("keydown", clickEnter);
+    document.addEventListener("keyup", unclickEnter);
 });
 
 // Add eventListener to "Max score" button
 document.getElementById("max-score").addEventListener("click", function () {
     document.querySelector(".score-results").style.display = "block";
     document.getElementById("play-area").style.display = "none";
+    //Blocks Enter and Spacebar buttons when Max score panel is displayed
+    document.removeEventListener("keydown", clickEnter);
+    document.removeEventListener("keyup", unclickEnter);
 });
 
 // Add eventListener to "Back to play" button in Max score panel
 document.querySelector(".button-position").addEventListener("click", function () {
     document.querySelector(".score-results").style.display = "none";
     document.getElementById("play-area").style.display = "block";
+    //Ulocks Enter and Spacebar buttons when "Back to play" button on Max score panel is clicked
+    document.addEventListener("keydown", clickEnter);
+    document.addEventListener("keyup", unclickEnter);
 });
 
 /**
