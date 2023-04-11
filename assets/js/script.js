@@ -20,11 +20,11 @@ yahtzeeResults.results.forEach((result) => {
 });
 
 // Create new Audio objects and set the source:
-let diceSound = new Audio("assets/js/dice-roll.mp3");
-let enterScoreSound = new Audio("assets/js/enter-score.mp3");
-let yahtzeeSound = new Audio("assets/js/yahtzee.mp3");
-let yahtzeeFiftySound = new Audio("assets/js/yahtzee_50.mp3");
-let bonusSound = new Audio("assets/js/bonus.mp3");
+let diceSound = new Audio("assets/sounds/dice-roll.mp3");
+let enterScoreSound = new Audio("assets/sounds/enter-score.mp3");
+let yahtzeeSound = new Audio("assets/sounds/yahtzee.mp3");
+let yahtzeeFiftySound = new Audio("assets/sounds/yahtzee_50.mp3");
+let bonusSound = new Audio("assets/sounds/bonus.mp3");
 
 // Add eventListener to "Game rules" button
 document.getElementById("rules-button").addEventListener("click", function () {
